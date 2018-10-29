@@ -1,0 +1,42 @@
+THREADS 1
+BIN ./loops2
+Loop 1 check: Sum of a is -343021.474766
+Total time for 1000 reps of loop 1 = 1.779100
+Loop 2 check: Sum of c is -25242644.603147
+Total time for 1000 reps of loop 2 = 8.687824
+THREADS 2
+BIN ./loops2
+Loop 1 check: Sum of a is -343021.474766
+Total time for 1000 reps of loop 1 = 1.228976
+Loop 2 check: Sum of c is -25242644.603147
+Total time for 1000 reps of loop 2 = 7.137738
+THREADS 4
+BIN ./loops2
+Loop 1 check: Sum of a is -343021.474766
+Total time for 1000 reps of loop 1 = 0.745261
+Loop 2 check: Sum of c is -25242644.603147
+Total time for 1000 reps of loop 2 = 6.229632
+THREADS 6
+BIN ./loops2
+Loop 1 check: Sum of a is -343021.474766
+Total time for 1000 reps of loop 1 = 0.549639
+Loop 2 check: Sum of c is -25242644.603147
+Total time for 1000 reps of loop 2 = 5.710279
+THREADS 8
+BIN ./loops2
+Loop 1 check: Sum of a is -343021.474766
+Total time for 1000 reps of loop 1 = 0.460840
+Loop 2 check: Sum of c is -25242644.603147
+Total time for 1000 reps of loop 2 = 5.450197
+THREADS 12
+BIN ./loops2
+Loop 1 check: Sum of a is -343021.474766
+Total time for 1000 reps of loop 1 = 0.354333
+Loop 2 check: Sum of c is -25242644.603147
+Total time for 1000 reps of loop 2 = 4.803238
+THREADS 16
+BIN ./loops2
+Loop 1 check: Sum of a is -343021.474766
+Total time for 1000 reps of loop 1 = 0.251397
+Loop 2 check: Sum of c is -25242644.603147
+Total time for 1000 reps of loop 2 = 4.415160
