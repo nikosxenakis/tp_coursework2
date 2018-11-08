@@ -1,59 +1,133 @@
 #include "affinity_scheduling.h"
 
-void print_thread_info(Thread_info* thread_info) {
-  printf("lo = %d, hi = %d\n", thread_info->lo, thread_info->hi);
+Local_Set* create_local_set(unsigned int thread_id, unsigned int local_set_size, unsigned int iterations) {
+  Local_Set* local_set = (Local_Set*)malloc(sizeof(Local_Set));
+
+  local_set->lo = thread_id*local_set_size;
+  local_set->hi = (thread_id+1)*local_set_size;
+  if(local_set->hi > iterations) local_set->hi = iterations;
+  local_set->curr = local_set->lo;
+  return local_set;
 }
 
-void init_thread_info(Thread_info* thread_info, int id, int ipt, int size) {
-  assert(thread_info && ipt <= size);
-  thread_info->lo = id*ipt;
-  thread_info->hi = (id+1)*ipt;
-  if(thread_info->hi > size)
-    thread_info->hi = size;
+void print_local_set(Local_Set* local_set) {
+  assert(local_set);
+	printf("\tLocal Set: lo = %d, curr = %d, hi = %d\n", local_set->lo, local_set->curr, local_set->hi);
 }
 
-int get_thread_info_rem_load(Thread_info* thread_info) {
-  assert(thread_info);
-  return thread_info->hi - thread_info->lo;
+Local_Set_Array* create_local_set_array(unsigned int threds_no, unsigned int iterations) {
+  Local_Set_Array* local_set_array = (Local_Set_Array*)malloc(sizeof(Local_Set_Array));
+
+  local_set_array->arr = (Local_Set**)malloc(threds_no*sizeof(Local_Set*));
+  local_set_array->threds_no = threds_no;
+  local_set_array->local_set_size = (int) ceil((double)iterations/(double)threds_no);
+
+  for (int thread_id = 0; thread_id < local_set_array->threds_no; ++thread_id) {
+	Local_Set* local_set = create_local_set(thread_id, local_set_array->local_set_size, iterations);
+    local_set_array->arr[thread_id] = local_set;
+  }
+
+  return local_set_array;
 }
 
-Thread_info* get_most_loaded_thread_info(Thread_info** thread_info_array, int size) {
-  Thread_info* thread_info = NULL;
-  for (int i = 0; i < size; ++i) {
-    if(thread_info == NULL) {
-        thread_info = thread_info_array[i];
+unsigned int get_local_set_rem_load(Local_Set* local_set) {
+  assert(local_set);
+	return local_set->hi - local_set->curr;
+}
+
+int is_finished_local_set(Local_Set* local_set) {
+  assert(local_set);
+
+  return local_set->hi == local_set->curr;
+}
+
+Chunk get_next_chunk_local_set(Local_Set* local_set, unsigned int threds_no) {
+  assert(local_set);
+
+  Chunk next_chunk;
+  unsigned int chunksize, rem_load;
+
+  rem_load = local_set->hi - local_set->curr;
+
+  if(rem_load > threds_no)
+    chunksize = rem_load / threds_no;
+  else
+    chunksize = 1;
+
+  next_chunk.lo = local_set->curr;
+
+  local_set->curr += chunksize;
+
+  next_chunk.hi = local_set->curr;
+
+  return next_chunk;
+}
+
+void free_local_set_array(Local_Set_Array* local_set_array) {
+  assert(local_set_array);
+
+  for (int thread_id = 0; thread_id < local_set_array->threds_no; ++thread_id) {
+  	free (local_set_array->arr[thread_id]);
+  }
+  free (local_set_array->arr);
+  free (local_set_array);
+}
+
+void print_local_set_array(Local_Set_Array* local_set_array) {
+  assert(local_set_array);
+
+  printf("Local Set Array\n\tThreads = %d\n\tLocal Set Size = %d\n", local_set_array->threds_no, local_set_array->local_set_size);
+  for (int thread_id = 0; thread_id < local_set_array->threds_no; ++thread_id) {
+  	print_local_set(local_set_array->arr[thread_id]);
+  }
+}
+
+Chunk get_next_chunk(Local_Set_Array* local_set_array, unsigned int thread_id) {
+  assert(local_set_array);
+
+  Local_Set* local_set = NULL;
+  Chunk next_chunk = {0, 0};
+
+  if(is_finished_local_set(local_set_array->arr[thread_id])) {
+    local_set = get_most_loaded_local_set(local_set_array);
+  }
+  else {
+    local_set = local_set_array->arr[thread_id];
+  }
+
+  if(local_set)
+    next_chunk = get_next_chunk_local_set(local_set, local_set_array->threds_no);
+
+  return next_chunk;
+}
+
+int is_finished_loop(Local_Set_Array* local_set_array) {
+  assert(local_set_array);
+
+  for (int thread_id = 0; thread_id < local_set_array->threds_no; ++thread_id) {
+    if(!is_finished_local_set(local_set_array->arr[thread_id]))
+      return 0;
+  }
+  return 1;
+}
+
+Local_Set* get_most_loaded_local_set(Local_Set_Array* local_set_array) {
+  assert(local_set_array);
+
+  Local_Set* loaded_local_set = NULL;
+  unsigned int max_load = 0;
+  unsigned int tmp_load = 0;
+  
+  for (int thread_id = 0; thread_id < local_set_array->threds_no; ++thread_id) {
+    tmp_load = get_local_set_rem_load(local_set_array->arr[thread_id]);
+    if(tmp_load > max_load) {
+      max_load = tmp_load;
+      loaded_local_set = local_set_array->arr[thread_id];
     }
-    else {
-      if( get_thread_info_rem_load(thread_info_array[i]) > get_thread_info_rem_load(thread_info)) {
-        thread_info = thread_info_array[i];
-      }
-    }
   }
 
-  return thread_info;
-}
+  if(!loaded_local_set || (loaded_local_set && is_finished_local_set(loaded_local_set)))
+    return NULL;
 
-int finished_thread_info(Thread_info* thread_info) {
-  if(thread_info->lo == thread_info->hi)
-    return 1;
-  else if(thread_info->lo - 1 < thread_info->hi)
-    return 0;
-  return -1;
-}
-
-int thread_info_is_available(Thread_info* thread_info) {
-  if(!finished_thread_info(thread_info) && thread_info->lo + 1 < thread_info->hi) {
-    return 1;
-  }
-  return 0;
-}
-
-void update_chunks(Thread_info* loaded, Thread_info* finished) {
-  assert(loaded && finished);
-  if(thread_info_is_available(loaded)) {
-    int new_lo = loaded->lo + ((loaded->hi - loaded->lo)/2);
-    finished->lo = new_lo;
-    finished->hi = loaded->hi;
-    loaded->hi = new_lo;
-  }
+  return loaded_local_set;
 }

@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import FormatStrFormatter
 import matplotlib.patches as mpatches
 
-bin_str = 'BIN ./bin/loops_'
+bin_str = 'BIN '
 threads_str = 'THREADS '
 loop1_time = 'Total time for 1000 reps of loop 1 = '
 loop2_time = 'Total time for 1000 reps of loop 2 = '
@@ -100,6 +100,59 @@ def calculate(data_file, best_loop1_scheduler, best_loop2_scheduler):
     )
 
 
-f = open('./data/results_coursework1.dat', 'r')
+def analyze_data(data_file, loop):
 
-calculate(f, 'guided04', 'dynamic16')
+    threads_list = ()
+    affinity_scheduling = ()
+    guided04 = ()
+    dynamic16 = ()
+
+    scheduler = None
+
+    for line in data_file:
+
+        res = get_next_string(line, threads_str)
+        if res is not None:
+            threads = res
+            threads_list = threads_list + (res,)
+            continue
+
+        res = get_next_string(line, bin_str)
+        if res is not None:
+            scheduler = res
+            continue
+
+        
+        res = get_next_string(line, loop2_time)
+        if res is not None and loop == "loop2":
+            if scheduler == "./loops2":
+                affinity_scheduling = affinity_scheduling + (float("%.3f" % float(res)),)
+            elif scheduler == "./bin/loops_guided04":
+                guided04 = guided04 + (float("%.3f" % float(res)),)
+            elif scheduler == "./bin/loops_dynamic16":
+                dynamic16 = dynamic16 + (float("%.3f" % float(res)),)
+
+    print threads_list
+    print affinity_scheduling
+    print guided04
+    print dynamic16
+
+    create_plots(
+        "running_time_loop2",
+        "Threads Number",
+        "Running Time",
+        ["affinity_scheduling", "guided04", "dynamic16"],
+        threads_list,
+        [affinity_scheduling, guided04, dynamic16],
+        0.4,
+        "upper right"
+    )
+
+
+# f = open('./data/results_coursework1.dat', 'r')
+
+# calculate(f, 'guided04', 'dynamic16')
+
+f = open('./data/data.dat', 'r')
+
+analyze_data(f, 'loop2')

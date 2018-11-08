@@ -1,0 +1,112 @@
+THREADS 1
+BIN ./loops2
+Loop 1 check: Sum of a is -343021.474766
+Total time for 1000 reps of loop 1 = 1.779100
+Loop 2 check: Sum of c is -25242644.603147
+Total time for 1000 reps of loop 2 = 8.687824
+BIN ./bin/loops_guided04
+Loop 1 check: Sum of a is -343021.474766
+Total time for 1000 reps of loop 1 = 1.681368
+Loop 2 check: Sum of c is -25242644.603147
+Total time for 1000 reps of loop 2 = 8.655000
+BIN ./bin/loops_dynamic16
+Loop 1 check: Sum of a is -343021.474766
+Total time for 1000 reps of loop 1 = 1.642658
+Loop 2 check: Sum of c is -25242644.603147
+Total time for 1000 reps of loop 2 = 8.654751
+THREADS 2
+BIN ./loops2
+Loop 1 check: Sum of a is -343021.474766
+Total time for 1000 reps of loop 1 = 1.228976
+Loop 2 check: Sum of c is -25242644.603147
+Total time for 1000 reps of loop 2 = 7.137738
+BIN ./bin/loops_guided04
+Loop 1 check: Sum of a is -343021.474766
+Total time for 1000 reps of loop 1 = 0.846038
+Loop 2 check: Sum of c is -25242644.603147
+Total time for 1000 reps of loop 2 = 6.207998
+BIN ./bin/loops_dynamic16
+Loop 1 check: Sum of a is -343021.474766
+Total time for 1000 reps of loop 1 = 0.840403
+Loop 2 check: Sum of c is -25242644.603147
+Total time for 1000 reps of loop 2 = 4.404381
+THREADS 4
+BIN ./loops2
+Loop 1 check: Sum of a is -343021.474766
+Total time for 1000 reps of loop 1 = 0.745261
+Loop 2 check: Sum of c is -25242644.603147
+Total time for 1000 reps of loop 2 = 6.229632
+BIN ./bin/loops_dynamic16
+Loop 1 check: Sum of a is -343021.474766
+Total time for 1000 reps of loop 1 = 0.435436
+Loop 2 check: Sum of c is -25242644.603147
+Total time for 1000 reps of loop 2 = 2.204149
+BIN ./bin/loops_guided04
+Loop 1 check: Sum of a is -343021.474766
+Total time for 1000 reps of loop 1 = 0.417131
+Loop 2 check: Sum of c is -25242644.603147
+Total time for 1000 reps of loop 2 = 5.430484
+THREADS 6
+BIN ./loops2
+Loop 1 check: Sum of a is -343021.474766
+Total time for 1000 reps of loop 1 = 0.549639
+Loop 2 check: Sum of c is -25242644.603147
+Total time for 1000 reps of loop 2 = 5.710279
+BIN ./bin/loops_guided04
+Loop 1 check: Sum of a is -343021.474766
+Total time for 1000 reps of loop 1 = 0.297172
+Loop 2 check: Sum of c is -25242644.603147
+Total time for 1000 reps of loop 2 = 4.786853
+BIN ./bin/loops_dynamic16
+Loop 1 check: Sum of a is -343021.474766
+Total time for 1000 reps of loop 1 = 0.302029
+Loop 2 check: Sum of c is -25242644.603147
+Total time for 1000 reps of loop 2 = 2.071831
+THREADS 8
+BIN ./loops2
+Loop 1 check: Sum of a is -343021.474766
+Total time for 1000 reps of loop 1 = 0.460840
+Loop 2 check: Sum of c is -25242644.603147
+Total time for 1000 reps of loop 2 = 5.450197
+BIN ./bin/loops_guided04
+Loop 1 check: Sum of a is -343021.474766
+Total time for 1000 reps of loop 1 = 0.243280
+Loop 2 check: Sum of c is -25242644.603147
+Total time for 1000 reps of loop 2 = 4.397311
+BIN ./bin/loops_dynamic16
+Loop 1 check: Sum of a is -343021.474766
+Total time for 1000 reps of loop 1 = 0.240720
+Loop 2 check: Sum of c is -25242644.603147
+Total time for 1000 reps of loop 2 = 2.073902
+THREADS 12
+BIN ./loops2
+Loop 1 check: Sum of a is -343021.474766
+Total time for 1000 reps of loop 1 = 0.354333
+Loop 2 check: Sum of c is -25242644.603147
+Total time for 1000 reps of loop 2 = 4.803238
+BIN ./bin/loops_guided04
+Loop 1 check: Sum of a is -343021.474766
+Total time for 1000 reps of loop 1 = 0.198884
+Loop 2 check: Sum of c is -25242644.603147
+Total time for 1000 reps of loop 2 = 3.882452
+BIN ./bin/loops_dynamic16
+Loop 1 check: Sum of a is -343021.474766
+Total time for 1000 reps of loop 1 = 0.165541
+Loop 2 check: Sum of c is -25242644.603147
+Total time for 1000 reps of loop 2 = 2.073050
+THREADS 16
+BIN ./loops2
+Loop 1 check: Sum of a is -343021.474766
+Total time for 1000 reps of loop 1 = 0.251397
+Loop 2 check: Sum of c is -25242644.603147
+Total time for 1000 reps of loop 2 = 4.415160
+BIN ./bin/loops_guided04
+Loop 1 check: Sum of a is -343021.474766
+Total time for 1000 reps of loop 1 = 0.131598
+Loop 2 check: Sum of c is -25242644.603147
+Total time for 1000 reps of loop 2 = 2.848014
+BIN ./bin/loops_dynamic16
+Loop 1 check: Sum of a is -343021.474766
+Total time for 1000 reps of loop 1 = 0.127206
+Loop 2 check: Sum of c is -25242644.603147
+Total time for 1000 reps of loop 2 = 2.072226

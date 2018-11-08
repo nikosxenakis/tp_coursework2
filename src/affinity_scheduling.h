@@ -2,72 +2,104 @@
 #define _AFFINITY_SCEDULING_H_
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <assert.h>
 
 typedef struct {
   int lo;
   int hi;
-}Thread_info;
+} Chunk;
+
+typedef struct {
+  int lo;
+  int hi;
+  int curr;
+} Local_Set;
 
 /**
- * @brief Prints the information for the given Thread_info structure
- * @param thread_info Thread_info pointer
+ * @brief Creates a Local_Set structure
+ * @param thread_id Thread id
+ * @param local_set_size Local Set Size
+ * @param iterations Number of iterations in loop
+ * @return The new Local_Set
  */
-extern void print_thread_info(Thread_info* thread_info);
+static Local_Set* create_local_set(unsigned int thread_id, unsigned int local_set_size, unsigned int iterations);
 
 /**
- * @brief Initializes the Thread_Info structure
- * @details Initializes the Thread_Info structure setting the lower and higher position of the chunk that will be executed
- * 
- * @param thread_info Thread_info pointer
- * @param id Thread id
- * @param ipt Initial chunksize per thread
- * @param size Size of all the iterations for the scheduled loop
+ * @brief Prints the information for the given Local_Set structure
+ * @param local_set Local_Set pointer
  */
-extern void init_thread_info(Thread_info* thread_info, int id, int ipt, int size);
+static void print_local_set(Local_Set* local_set);
 
 /**
- * @brief Calculates the remaining load for the given thread
- * 
- * @param thread_info Thread_info pointer
- * @return Returns the remaining load of the given thread
+ * @brief Calculates the remaining load for the given Local_Set
+ * @param local_set Local_Set pointer
+ * @return Returns the remaining load of the given Local_Set
  */
-extern int get_thread_info_rem_load(Thread_info* thread_info);
+static unsigned int get_local_set_rem_load(Local_Set* local_set);
 
 /**
- * @brief Finds the most loaded running thread
- * @details Iterates all the threads in the array and returns the thread with the most remaining load
+ * @brief Checks if a Local_Set has finished
  * 
- * @param thread_info_array An array that contains Thread_info pointers of all the threads
- * @param size Size of thread_info_array (Number of threads)
- * 
- * @return Returns information for the most loaded thread
+ * @param local_set Local_Set pointer
+ * @return Returns 1 if it has finished otherwise 0
  */
-extern Thread_info* get_most_loaded_thread_info(Thread_info** thread_info_array, int size);
+static int is_finished_local_set(Local_Set* local_set);
 
 /**
- * @brief Checks if a thread has finished
- * @details Calculates if the lower equals to the higher position
- * 
- * @param thread_info Thread_info pointer
- * @return Returns 1 if it has finished, 0 if it have not and -1 in error case
+ * @brief Calculates the next chunk in the given Local_Set
+ * @param local_set Local_Set pointer
+ * @param thread_id Thread id
+ * @return the new Chunk for execution
  */
-extern int finished_thread_info(Thread_info* thread_info);
+static Chunk get_next_chunk_local_set(Local_Set* local_set, unsigned int thread_id);
+
+typedef struct {
+  Local_Set** arr;
+  unsigned int threds_no;
+  unsigned int local_set_size;
+} Local_Set_Array;
 
 /**
- * @brief Checks if a thread is available for reducing load
- * 
- * @param thread_info Thread_info pointer
- * @return Returns 1 if it has finished and 0 if it have not
+ * @brief Creates a Local_Set_Array structure
+ * @param threds_no Number of threads in loop
+ * @param iterations Number of iterations in loop
+ * @return The new Local_Set_Array
  */
-extern int thread_info_is_available(Thread_info* thread_info);
+extern Local_Set_Array* create_local_set_array(unsigned int threds_no, unsigned int iterations);
 
 /**
- * @brief Reschedules the chunks of the loaded and finished threads
- * @details Divides in two the chunk of the loaded thread and assigns the latest chunk to the finished thread
- * 
- * @param loaded Thread_info pointer to the most loaded thread
- * @param finished Thread_info pointer to the finished thread
+ * @brief Deallocates the Local_Set_Array memory
+ * @param local_set_array The new Local_Set_Array
  */
-extern void update_chunks(Thread_info* loaded, Thread_info* finished);
+extern void free_local_set_array(Local_Set_Array* local_set_array);
+
+/**
+ * @brief Prints the information for the given Local_Set_Array structure
+ * @param local_set_array The new Local_Set_Array
+ */
+extern void print_local_set_array(Local_Set_Array* local_set_array);
+
+/**
+ * @brief Calculates the next chunk in the given Local_Set_Array
+ * @param local_set_array Local_Set_Array pointer
+ * @param thread_id Thread id
+ * @return the new Chunk for execution
+ */
+extern Chunk get_next_chunk(Local_Set_Array* local_set_array, unsigned int thread_id);
+
+/**
+ * @brief Checks if a loop has finished
+ * @param local_set_array Local_Set_Array pointer
+ * @return Returns 1 if it has finished otherwise 0
+ */
+extern int is_finished_loop(Local_Set_Array* local_set_array);
+/**
+ * @brief Find the most loaded Local_Set for the given Local_Set_Array
+ * @param local_set_array Local_Set_Array pointer
+ * @return Returns the most loaded Local_Set for the given Local_Set_Array
+ */
+static Local_Set* get_most_loaded_local_set(Local_Set_Array* local_set_array);
 
 #endif /* _AFFINITY_SCEDULING_H_ */
