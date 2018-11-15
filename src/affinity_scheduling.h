@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <assert.h>
+#include <omp.h> 
 
 typedef struct {
   int lo;
@@ -12,9 +13,9 @@ typedef struct {
 } Chunk;
 
 typedef struct {
+  omp_lock_t lock;
   int lo;
   int hi;
-  int curr;
 } Local_Set;
 
 /**
@@ -76,12 +77,6 @@ extern Local_Set_Array* create_local_set_array(unsigned int threds_no, unsigned 
 extern void free_local_set_array(Local_Set_Array* local_set_array);
 
 /**
- * @brief Prints the information for the given Local_Set_Array structure
- * @param local_set_array The new Local_Set_Array
- */
-extern void print_local_set_array(Local_Set_Array* local_set_array);
-
-/**
  * @brief Calculates the next chunk in the given Local_Set_Array
  * @param local_set_array Local_Set_Array pointer
  * @param thread_id Thread id
@@ -98,8 +93,9 @@ extern int is_finished_loop(Local_Set_Array* local_set_array);
 /**
  * @brief Find the most loaded Local_Set for the given Local_Set_Array
  * @param local_set_array Local_Set_Array pointer
+ * @param thread_id Thread id
  * @return Returns the most loaded Local_Set for the given Local_Set_Array
  */
-static Local_Set* get_most_loaded_local_set(Local_Set_Array* local_set_array);
+static Local_Set* get_most_loaded_local_set(Local_Set_Array* local_set_array, unsigned int thread_id);
 
 #endif /* _AFFINITY_SCEDULING_H_ */

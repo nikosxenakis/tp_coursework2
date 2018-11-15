@@ -4,9 +4,13 @@
 \contentsline {subsection}{\numberline {2.2}Terminology}{3}{subsection.2.2}
 \contentsline {section}{\numberline {3}Analysis}{3}{section.3}
 \contentsline {subsection}{\numberline {3.1}Tools}{3}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Design}{3}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Syncronization}{3}{subsection.3.3}
-\contentsline {section}{\numberline {4}Evaluation}{3}{section.4}
-\contentsline {subsection}{\numberline {4.1}Loop 1}{4}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Loop 2}{4}{subsection.4.2}
-\contentsline {section}{\numberline {5}Conclusion}{4}{section.5}
+\contentsline {subsection}{\numberline {3.2}Design}{4}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Syncronization}{4}{subsection.3.3}
+\contentsline {section}{\numberline {4}Evaluation}{5}{section.4}
+\contentsline {subsection}{\numberline {4.1}Loop 1}{5}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Running Time}{5}{subsubsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.2}Speedup}{6}{subsubsection.4.1.2}
+\contentsline {subsection}{\numberline {4.2}Loop 2}{7}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {4.2.1}Running Time}{7}{subsubsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.2}Speedup}{8}{subsubsection.4.2.2}
+\contentsline {section}{\numberline {5}Conclusion}{9}{section.5}

@@ -12,16 +12,13 @@ module load gcc
 
 BIN_DIR=.
 DATA_FOLDER=./data
-DATA_FILE=$DATA_FOLDER/results.dat
-
-echo "cleaning..."
+DATA_FILE=$DATA_FOLDER/results_backend.tsv
 rm $DATA_FILE
+
+echo "Threads Number	Schedule	Loop	Time" >> $DATA_FILE;
 
 for THREADS in 1 2 4 6 8 12 16
 do
-  echo "THREADS $THREADS" >> $DATA_FILE
-  export OMP_NUM_THREADS=$THREADS
-
-  echo "BIN ${BIN_DIR}/loops2" >> $DATA_FILE
-  $BIN_DIR/loops2 >> $DATA_FILE
+  export OMP_NUM_THREADS=$THREADS;
+  $BIN_DIR/loops2 >> $DATA_FILE;
 done

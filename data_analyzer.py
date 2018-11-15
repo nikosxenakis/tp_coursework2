@@ -1,15 +1,8 @@
 #!/usr/bin/env python2
-# analyze_data.py
+# data_analyzer.py
 
-import numpy as np
+import os
 import matplotlib.pyplot as plt
-from matplotlib.ticker import FormatStrFormatter
-import matplotlib.patches as mpatches
-
-bin_str = 'BIN '
-threads_str = 'THREADS '
-loop1_time = 'Total time for 1000 reps of loop 1 = '
-loop2_time = 'Total time for 1000 reps of loop 2 = '
 
 
 def create_plots(title, x_axis_title, y_axis_title, labels, x_values, y_values, alpha, legent_pos):
@@ -17,9 +10,6 @@ def create_plots(title, x_axis_title, y_axis_title, labels, x_values, y_values, 
     fig, ax = plt.subplots()
     ax.set_xlabel(x_axis_title)
     ax.set_ylabel(y_axis_title)
-
-    # for x, y in zip(x_values, y_values):
-    #     plt.text(0, y, " " + ("%.2f" % y))
 
     markers = ['go-', 'gs-', 'gD-']
     colors = ['#7293cb', '#84ba51', '#d35e60']
@@ -29,130 +19,122 @@ def create_plots(title, x_axis_title, y_axis_title, labels, x_values, y_values, 
     i = 0
     for y_list in y_values:
         lines.append(plt.plot(x_values, y_list, markers[i], label=labels[i], linewidth=2, color=colors[i]))
-        for value in y_list:
-            plt.axhline(y=value, linewidth=1, color=colors[i], alpha=alpha, linestyle="--")
         i = i + 1
 
-    # plt.legend(lines, labels)
     plt.legend(loc=legent_pos)
 
     fig.savefig('./graphs/' + str(title) + '.eps', format='eps', dpi=1000)
-    plt.show()
 
 
-def get_next_string(src, contains):
-    if src.startswith(contains):
-        return src[src.index(contains) + len(contains):len(src)-1]
-    return None
+def analyze_data(data_file, loop_no):
 
+    i = 0;
 
-def calculate(data_file, best_loop1_scheduler, best_loop2_scheduler):
-
-    threads_list = ()
-    loop1_speedup_list = ()
-    loop2_speedup_list = ()
-
-    scheduler = None
+    titles = ()
+    schedule = ()
+    guided_time = ()
+    dynamic_time = ()
+    affinity_time = ()
 
     for line in data_file:
+        data = line.split('\t')
+        if i == 0:
+            titles = data
+        else:
+            if loop_no == int(data[2]):
+                schedule = schedule + (str(data[1]),)
+                if str(data[1]) == "guided, 4":
+                    guided_time = guided_time + (float("%.3f" % float(data[3])),)
+                if str(data[1]) == "dynamic, 16":
+                    dynamic_time = dynamic_time + (float("%.3f" % float(data[3])),)
+                if str(data[1]) == "affinity":
+                    affinity_time = affinity_time + (float("%.3f" % float(data[3])),)
+        i = i + 1
 
-        res = get_next_string(line, threads_str)
-        if res is not None:
-            threads = res
-            threads_list = threads_list + (res,)
-            continue
-
-        res = get_next_string(line, bin_str)
-        if res is not None:
-            scheduler = res
-            continue
-
-        if scheduler == best_loop1_scheduler:
-            res = get_next_string(line, loop1_time)
-            if res is not None:
-                loop1_speedup_list = loop1_speedup_list + (float("%.3f" % float(res)),)
-
-        if scheduler == best_loop2_scheduler:
-            res = get_next_string(line, loop2_time)
-            if res is not None:
-                loop2_speedup_list = loop2_speedup_list + (float("%.3f" % float(res)),)
-
-    create_plots(
-        "speedup_loop1",
-        "Threads Number",
-        "Speedup",
-        ["guided, 4"],
-        threads_list,
-        [loop1_speedup_list],
-        0.4,
-        "lower right"
-    )
-
-    create_plots(
-        "speedup_loop2",
-        "Threads Number",
-        "Speedup",
-        ["dynamic, 16"],
-        threads_list,
-        [loop2_speedup_list],
-        0.4,
-        "lower right"
-    )
+    if loop_no == 1:
+        create_plots(
+            "loop1_running_time",
+            titles[0],
+            "Running Time (sec)",
+            ["guided, 4", "affinity"],
+            [1, 2, 4, 6, 8, 12, 16],
+            [guided_time, affinity_time],
+            0.4,
+            "upper right"
+        )
+    elif loop_no == 2:
+        create_plots(
+            "loop2_running_time",
+            titles[0],
+            "Running Time (sec)",
+            ["dynamic, 16", "affinity"],
+            [1, 2, 4, 6, 8, 12, 16],
+            [dynamic_time, affinity_time],
+            0.4,
+            "upper right"
+        )
 
 
-def analyze_data(data_file, loop):
+def analyze_data_speedup(data_file, loop_no):
 
-    threads_list = ()
-    affinity_scheduling = ()
-    guided04 = ()
-    dynamic16 = ()
+    i = 0;
 
-    scheduler = None
+    titles = ()
+    schedule = ()
+    affinity_speedup = ()
+    ideal_speedup = ()
+    affinity_time1 = 0
+    ideal_time1 = 0
 
     for line in data_file:
+        data = line.split('\t')
+        if i == 0:
+            titles = data
+        else:
+            if loop_no == int(data[2]):
+                schedule = schedule + (str(data[1]),)
+                if str(data[1]) == "affinity":
+                    if affinity_speedup == ():
+                        affinity_time1 = float(data[3])
+                    affinity_speedup = affinity_speedup + ( float("%.3f" % float(affinity_time1/float(data[3])))  ,)
+                if str(data[1]) == "ideal":
+                    if ideal_speedup == ():
+                        ideal_time1 = float(data[3])
+                    ideal_speedup = ideal_speedup + ( float("%.3f" % float(ideal_time1/float(data[3])))  ,)
+        i = i + 1
 
-        res = get_next_string(line, threads_str)
-        if res is not None:
-            threads = res
-            threads_list = threads_list + (res,)
-            continue
-
-        res = get_next_string(line, bin_str)
-        if res is not None:
-            scheduler = res
-            continue
-
-        
-        res = get_next_string(line, loop2_time)
-        if res is not None and loop == "loop2":
-            if scheduler == "./loops2":
-                affinity_scheduling = affinity_scheduling + (float("%.3f" % float(res)),)
-            elif scheduler == "./bin/loops_guided04":
-                guided04 = guided04 + (float("%.3f" % float(res)),)
-            elif scheduler == "./bin/loops_dynamic16":
-                dynamic16 = dynamic16 + (float("%.3f" % float(res)),)
-
-    print threads_list
-    print affinity_scheduling
-    print guided04
-    print dynamic16
-
-    create_plots(
-        "running_time_loop2",
-        "Threads Number",
-        "Running Time",
-        ["affinity_scheduling", "guided04", "dynamic16"],
-        threads_list,
-        [affinity_scheduling, guided04, dynamic16],
-        0.4,
-        "upper right"
-    )
+    if loop_no == 1:
+        create_plots(
+            "loop1_speedup",
+            titles[0],
+            "Speedup",
+            ["affinity", "ideal"],
+            [1, 2, 4, 6, 8, 12, 16],
+            [affinity_speedup, ideal_speedup],
+            0.4,
+            "lower right"
+        )
+    elif loop_no == 2:
+        create_plots(
+            "loop2_speedup",
+            titles[0],
+            "Speedup",
+            ["affinity", "ideal"],
+            [1, 2, 4, 6, 8, 12, 16],
+            [affinity_speedup, ideal_speedup],
+            0.4,
+            "lower right"
+        )
 
 
-# f = open('./data/results_coursework1.dat', 'r')
+path = './data/results.tsv'
 
-# calculate(f, 'guided04', 'dynamic16')
-
-f = open('./data/data.dat', 'r')
-
-analyze_data(f, 'loop2')
+if os.path.exists(path):
+    f = open(path, 'r')
+    analyze_data(f, 1)
+    f = open(path, 'r')
+    analyze_data(f, 2)
+    f = open(path, 'r')
+    analyze_data_speedup(f, 1)
+    f = open(path, 'r')
+    analyze_data_speedup(f, 2)
