@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include <assert.h>
 #include <omp.h> 
 
 typedef struct {
@@ -26,12 +25,6 @@ typedef struct {
  * @return The new Local_Set
  */
 static Local_Set* create_local_set(unsigned int thread_id, unsigned int local_set_size, unsigned int iterations);
-
-/**
- * @brief Prints the information for the given Local_Set structure
- * @param local_set Local_Set pointer
- */
-static void print_local_set(Local_Set* local_set);
 
 /**
  * @brief Calculates the remaining load for the given Local_Set
@@ -91,7 +84,7 @@ extern Chunk get_next_chunk(Local_Set_Array* local_set_array, unsigned int threa
  */
 extern int is_finished_loop(Local_Set_Array* local_set_array);
 /**
- * @brief Find the most loaded Local_Set for the given Local_Set_Array
+ * @brief Finds the most loaded Local_Set for the given Local_Set_Array
  * @param local_set_array Local_Set_Array pointer
  * @param thread_id Thread id
  * @return Returns the most loaded Local_Set for the given Local_Set_Array

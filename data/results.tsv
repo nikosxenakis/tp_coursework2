@@ -1,4 +1,4 @@
-Threads Number	Schedule	Loop	Time
+Number of Threads	Schedule	Loop	Time
 1	guided, 4	1	1.681368
 2	guided, 4	1	0.846038
 4	guided, 4	1	0.435436
@@ -13,31 +13,17 @@ Threads Number	Schedule	Loop	Time
 8	dynamic, 16	2	2.073902
 12	dynamic, 16	2	2.073050
 16	dynamic, 16	2	2.072226
-1	affinity	1	1.646179
-2	affinity	1	0.829376
-4	affinity	1	0.428833
-6	affinity	1	0.301950
-8	affinity	1	0.235914
-12	affinity	1	0.172904
-16	affinity	1	0.150890
-1	affinity	2	8.694802
-2	affinity	2	6.237399
-4	affinity	2	4.426363
-6	affinity	2	2.610080
-8	affinity	2	1.573903
-12	affinity	2	1.003521
-16	affinity	2	0.863701
-1	ideal	1	1.642930
-2	ideal	1	0.821465
-4	ideal	1	0.4107325
-6	ideal	1	0.27382167
-8	ideal	1	0.20536625
-12	ideal	1	0.13691084
-16	ideal	1	0.10268313
-1	ideal	2	7.694802
-2	ideal	2	4.347401
-4	ideal	2	2.1737005
-6	ideal	2	1.44913367
-8	ideal	2	1.08685025
-12	ideal	2	0.72456684
-16	ideal	2	0.54342513
+1	affinity	1	1.648334
+1	affinity	2	8.690914
+2	affinity	1	0.839141
+2	affinity	2	6.224832
+4	affinity	1	0.435083
+4	affinity	2	4.413279
+6	affinity	1	0.320622
+6	affinity	2	2.603616
+8	affinity	1	0.282139
+8	affinity	2	1.577584
+12	affinity	1	0.238429
+12	affinity	2	1.576056
+16	affinity	1	0.194840
+16	affinity	2	0.987559

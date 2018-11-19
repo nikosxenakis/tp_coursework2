@@ -1,0 +1,15 @@
+Number of Threads	Schedule	Loop	Time
+1	guided, 4	1	1.681368
+2	guided, 4	1	0.846038
+4	guided, 4	1	0.435436
+6	guided, 4	1	0.297172
+8	guided, 4	1	0.243280
+12	guided, 4	1	0.198884
+16	guided, 4	1	0.131598
+1	dynamic, 16	2	8.654751
+2	dynamic, 16	2	4.404381
+4	dynamic, 16	2	2.204149
+6	dynamic, 16	2	2.071831
+8	dynamic, 16	2	2.073902
+12	dynamic, 16	2	2.073050
+16	dynamic, 16	2	2.072226

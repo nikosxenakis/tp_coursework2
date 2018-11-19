@@ -2,15 +2,18 @@
 \contentsline {section}{\numberline {2}Project Specification}{3}{section.2}
 \contentsline {subsection}{\numberline {2.1}Description}{3}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Terminology}{3}{subsection.2.2}
-\contentsline {section}{\numberline {3}Analysis}{3}{section.3}
-\contentsline {subsection}{\numberline {3.1}Tools}{3}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Design}{4}{subsection.3.2}
+\contentsline {section}{\numberline {3}Design Analysis}{3}{section.3}
+\contentsline {subsection}{\numberline {3.1}Initialization}{4}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Main Loop}{4}{subsection.3.2}
 \contentsline {subsection}{\numberline {3.3}Syncronization}{4}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Finilization}{5}{subsection.3.4}
 \contentsline {section}{\numberline {4}Evaluation}{5}{section.4}
-\contentsline {subsection}{\numberline {4.1}Loop 1}{5}{subsection.4.1}
-\contentsline {subsubsection}{\numberline {4.1.1}Running Time}{5}{subsubsection.4.1.1}
-\contentsline {subsubsection}{\numberline {4.1.2}Speedup}{6}{subsubsection.4.1.2}
-\contentsline {subsection}{\numberline {4.2}Loop 2}{7}{subsection.4.2}
-\contentsline {subsubsection}{\numberline {4.2.1}Running Time}{7}{subsubsection.4.2.1}
-\contentsline {subsubsection}{\numberline {4.2.2}Speedup}{8}{subsubsection.4.2.2}
-\contentsline {section}{\numberline {5}Conclusion}{9}{section.5}
+\contentsline {subsection}{\numberline {4.1}Tools}{5}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Platform}{6}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Loop 1}{6}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}Running Time}{6}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}Speedup}{7}{subsubsection.4.3.2}
+\contentsline {subsection}{\numberline {4.4}Loop 2}{8}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}Running Time}{8}{subsubsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.2}Speedup}{10}{subsubsection.4.4.2}
+\contentsline {section}{\numberline {5}Conclusion}{10}{section.5}

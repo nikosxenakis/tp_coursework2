@@ -28,4 +28,4 @@ qsub loops2.pbs;
 
 ## Documentation
 
-The header file affinity_scheduling.h contains inline documentation for the used functions
+The header file affinity_scheduling.h and source file affinity_scheduling.c contain inline documentation for the used functions

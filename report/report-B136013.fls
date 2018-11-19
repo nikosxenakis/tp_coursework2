@@ -147,6 +147,16 @@ INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/tex/late
 INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/tex/latex/psnfss/omsptm.fd
 INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/fonts/vf/adobe/times/ptmb8t.vf
 INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/adobe/times/ptmb8r.tfm
+INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/tex/latex/listings/lstlang1.sty
+INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/tex/latex/listings/lstlang1.sty
+INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/tex/latex/listings/lstlang1.sty
+INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/tex/latex/listings/lstlang1.sty
+INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/adobe/times/ptmr8t.tfm
+INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/adobe/times/ptmr8t.tfm
+INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/fonts/vf/adobe/times/ptmr8t.vf
+INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/adobe/times/ptmr8r.tfm
+INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/fonts/vf/adobe/times/ptmr8t.vf
+INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT ../graphs/loop1_running_time.eps
 INPUT ../graphs/loop1_running_time.eps
 INPUT ../graphs/loop1_running_time.eps
@@ -167,6 +177,16 @@ INPUT ../graphs/loop1_speedup-eps-converted-to.pdf
 INPUT ../graphs/loop1_speedup-eps-converted-to.pdf
 INPUT ../graphs/loop1_speedup-eps-converted-to.pdf
 INPUT ../graphs/loop1_speedup-eps-converted-to.pdf
+INPUT ../graphs/jmax.eps
+INPUT ../graphs/jmax.eps
+INPUT ../graphs/jmax.eps
+INPUT ../graphs/jmax-eps-converted-to.pdf
+INPUT ../graphs/jmax-eps-converted-to.pdf
+INPUT ../graphs/jmax.eps
+INPUT ../graphs/jmax-eps-converted-to.pdf
+INPUT ../graphs/jmax-eps-converted-to.pdf
+INPUT ../graphs/jmax-eps-converted-to.pdf
+INPUT ../graphs/jmax-eps-converted-to.pdf
 INPUT ../graphs/loop2_running_time.eps
 INPUT ../graphs/loop2_running_time.eps
 INPUT ../graphs/loop2_running_time.eps

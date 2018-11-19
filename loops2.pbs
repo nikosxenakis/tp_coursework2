@@ -1,24 +1,26 @@
 #!/bin/bash --login
 #
 #PBS -N loops2
-#PBS -l select=1:ncpus=36
-#PBS -l walltime=0:30:0
 #PBS -A d167-s1770309
+#PBS -l walltime=0:30:00
+#PBS -l select=1:ncpus=36
 
 cd $PBS_O_WORKDIR
  
 module load intel-compilers-17
 module load gcc
 
-BIN_DIR=.
 DATA_FOLDER=./data
-DATA_FILE=$DATA_FOLDER/results_backend.tsv
+DATA_FILE=$DATA_FOLDER/results_coursework2.txt
 rm $DATA_FILE
 
-echo "Threads Number	Schedule	Loop	Time" >> $DATA_FILE;
-
+echo "affinity" >> $DATA_FILE;
 for THREADS in 1 2 4 6 8 12 16
 do
+  echo "THREADS ${THREADS}" >> $DATA_FILE;
   export OMP_NUM_THREADS=$THREADS;
-  $BIN_DIR/loops2 >> $DATA_FILE;
+  for i in {1..20};
+  do
+    ./loops2 >> $DATA_FILE;
+  done
 done

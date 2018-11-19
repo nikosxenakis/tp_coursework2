@@ -1,0 +1,15 @@
+Number of Threads	Schedule	Loop	Time
+1	affinity	1	1.648365
+1	affinity	2	8.690969
+2	affinity	1	0.846159
+2	affinity	2	6.224878
+4	affinity	1	0.438579
+4	affinity	2	4.413371
+6	affinity	1	0.325344
+6	affinity	2	2.603834
+8	affinity	1	0.299937
+8	affinity	2	1.577630
+12	affinity	1	0.238967
+12	affinity	2	1.576475
+16	affinity	1	0.196528
+16	affinity	2	0.988536

@@ -67,18 +67,18 @@
 
 \section{Introduction}
 
-The goal of this coursework is to implement an alternative loop scheduling algorithm using OpenMP API. The scheduling method is called Affinity scheduling and it will be described in the following section.
+The goal of this coursework is to implement an alternative loop scheduling algorithm using OpenMP API. This method is called Affinity scheduling and it will be described in the following section.
 
 \sectionVspacing
 
 \section{Project Specification}
 \subsection{Description}
 
-In short, Affinity scheduling assigns a local set of iterations of the given loop to each thread. When each thread finishes these iterations it will search into the other threads, it will find the most loaded one and it will take a fraction of its workload.
+In short, Affinity scheduling assigns a local set of iterations of the given loop to each thread. When each thread finishes these iterations it will search into the other threads, it will find the most loaded one and it will take a fraction of its workload. The algorithm will finish when all of the Local Sets has not more iterations to be done.
 
 \subsection{Terminology}
 
-In order to analyze the design, the definition of basic terminology is required. These terms are explained in this section.
+In order to analyze the design, the definition of basic terminology is required. These terms are:
 
 \begin{itemize}
   \item Chunk: A contiguous, non-empty subset of the iterations of a loop.
@@ -89,32 +89,32 @@ In order to analyze the design, the definition of basic terminology is required.
 
 \sectionVspacing
 
-\section{Analysis}
+\section{Design Analysis}
 
-\subsection{Tools}
+The scheduler has been designed with the necessary data structures and functions that hold vital information about the progress of the loop and each thread's workload. The functions containing the body of the loop has not been changed. The only modifications made are in runloop function providing the right Chunks for the loop.
 
-The programming language used for the development of the scheduler is C. As regards the compiler we have used GCC from the GNU Compiler Collection including the -O3 option to ensure a high level of optimization in the sequential part of the problem. In terms of building, GNU Make rules made to compile, run and clean the project.
+\subsection{Initialization}
+First and foremost, an OMP parallel region is created, with 2 shared variables. These variables are the loopid which determines which loop is running and a uninitialized pointer to Local\_Set\_Array, which will hold all the information for loop's progress. Then an initialization function is called that only one of the threads has to execute (first arrived thread). This function takes as input the number of iterations in the loop and the number of the active threads for this job to create a Local\_Set\_Array.
 
-\subsection{Design}
+The Local\_Set\_Array is a C structure that contains an array of Local\_Set. Each thread can access a Local\_Set using a thread id as an index. For example, if we want to obtain the Local\_Set for thread number 4, the only thing we have to do is to look up for the fourth object in the array of Local\_Set\_Array structure. A Local\_Set in our implementation is a data structure containing:
 
-The scheduler's design is pretty straightforward containing the necessary data structures and functions that hold vital information about the progress of the loop and each thread workload. The functions containing the body of the loop has not been changed. The only modifications made are in runloop function providing the right Chunks for the loop.
+\begin{itemize}
+  \item The lowest position for the next to execute the Chunk
+  \item The highest position for this Local Set
+  \item An omp\_lock\_t that a thread is forced to obtain in order to update the Local\_Set
+\end{itemize}
 
-First and foremost, we created an initialization function that only one of the threads has to execute (first come, first served). This function takes as input the number of iterations in the loop and the number of the active threads for this job. To be more specific, this method creates a structure that contains an array of Local Sets. The index in this array is the number of the current thread. 
+\subsection{Main Loop}
+The main loop consists of 3 parts. The first one is the terminate condition. Each thread has to check if the loop has finished, in that case, each Local Set's lowest position equals the highest one. If yes then it exits and waits for the others to go to the finalization stage.
 
-For example, if we want to obtain the Local Set for thread number 4, the only thing we have to do is to look up for the fourth structure in the array.
-A Local Set in our implementation is a data structure containing the starting position for the next to execute chunk, the highest iteration to be calculated for this Local Set and last but not least an omp\_lock\_t that a thread is forced to obtain in order to update the Local Set.
+If this is not the case the thread tries to get the next Chunk. We define Chunk as a data structure that contains the lowest and highest positions that the thread has to run in the loop. The main interest of this project lies in the function that returns the next Chunk (more in the Synchronization section).
 
-The main interest lies in the function that returns the next Chunk (more in Synchronization section). The next Chunk is just a structure containing the lowest and highest position that the thread has to run in the loop.
-
-It worths mentioning that each time a thread finishes the execution for the given Chunk checks if the loop has finished. A loop has finished if each Local Set's lowest position equals the highest one. If this is not true then it tries again to take the next Chunk (if it is possible).
-
-At the end of the loop, a function is called that is responsible to free the allocated head memory for the Local Sets. Just like the initialization phase, this method is called by the thread that arrives first in this section.
+Once the thread has successfully obtained the new Chunk it calls the appropriate function to calculate the loop. This is where all of the loop calculations are done. The given parameters are the lowest and highest positions, which are contained in the next Chunk structure.
 
 \subsection{Syncronization}
+As mentioned before, synchronization is needed in the system to obtain the next Chunk. In terms of correctness, the implementation of this function has to ensure that each iteration is going to run exactly one time by one thread. This means that the returned Chunks will contain a unique workload that has not been executed before. Also, for efficiency reasons race conditions between threads have to be reduced in a specific manner to avoid unnecessary stalls. OpenMP provides the omp\_lock\_t object. This allows as to gain exclusive access to a Local Set, in order to get correct Chunks.
 
-As mentioned before, synchronization is needed in the system to obtain the next Chunk. In terms of correctness, the implementation of this function has to ensure that each iteration is going to run exactly one time by one thread. Also, for efficiency reasons race conditions between threads have to be reduced in a specific manner to avoid deadlocks.
-
-The process is very simple. In the beginning, the thread tries to acquire the next Chunk from its Local Set if this is successful it returns with the Chunk if not it has to steal workload for the most loaded thread.
+The process to obtain the next Chunk is simple. In the beginning, a thread tries to acquire the next Chunk from its Local Set if this is successful it returns with the Chunk if not it has to steal workload for the most loaded thread.
 
 To find the most loaded thread we have to iterate the array of the Local Sets, peek the remaining workload and if it is the biggest seen until now we try to lock it and acquire it as the next to execute Chunk. If the Chunksize is smaller than the one that we have found in this array we ignore it without any attempt to lock it. We can denote that this approach speeds up the process without unnecessary locks for less loaded Chunks. 
 
@@ -122,53 +122,94 @@ Our most loaded Local Set remains locked to avoid any other threads trying to st
 
 Waiting to obtain the lock for the next Local Set is unavoidable, but deadlocks are eliminated because no matter what happens each thread will eventually unlock the selected Local Set.
 
+\subsection{Finilization}
+At the end of the loop, a function is called that is responsible to free the heap memory of the allocated Local\_Set\_Array. Just like the initialization phase, this method is called by the thread that arrives first in this section.
+
 \sectionVspacing
 
 \section{Evaluation}
 
-We have evaluated the scheduler running our experiments on the backend of Cirrus supercomputer using 1, 2, 4, 6, 8, 12 and 16 threads. Then, we compared our results with the best scheduling options that we found in coursework 1 (guided, 4 for Loop 1 and dynamic, 16 for Loop 2). The evaluation process includes graphs for each loop of the running time and the speedup against the number of threads. In addition, the speedup graphs contain the ideal measurements based on Amdahl's law.
+\subsection{Tools}
 
-It worths mentioning that the measurements are a product of multiple runs over the loops. To be more specific each of the loops has been executed 20 times. Then the mean values have been used for the visual representations.
+The programming language used for the development of the scheduler is C. As regards the compiler we have used GCC from the GNU Compiler Collection including the -O3 option to ensure a high level of optimization in the sequential part of the problem. In terms of building, GNU Make rules made to compile, run and clean the project.
+
+To clean the project execute:
+\begin{lstlisting}[language=bash]
+  $ make clean
+\end{lstlisting}
+
+To make the project execute:
+\begin{lstlisting}[language=bash]
+  $ make loops2
+\end{lstlisting}
+
+\subsection{Platform}
+
+We have evaluated the scheduler running our experiments on the backend of Cirrus supercomputer using 1, 2, 4, 6, 8, 12 and 16 threads. Then, we compared our results with the best scheduling options that we found in coursework 1 (guided, 4 for Loop 1 and dynamic, 16 for Loop 2). The evaluation process includes graphs for each loop of the running time and the speedup against the number of threads. In addition, the speedup graphs contain the ideal speedup.
+
+It worths mentioning that the measurements are a product of multiple runs over the loops, in order to reduce the noise in the timing results. To be more specific, the experiment has been executed 20 times for each thread configuration. This has been described in a Portable Batch System (PBS) script. Then the median values of each case have been used for the visual representations of the graphs.
+
+To run the project in Cirrus execute:
+\begin{lstlisting}[language=bash]
+  $ qsub loops2.pbs
+\end{lstlisting}
+
+Once this job is done we have to run:
+\begin{lstlisting}[language=bash]
+  $ python data_analyzer.py
+\end{lstlisting}
+This script will create the appropriate graphs for the specific experiment data/ folder
 
 \subsection{Loop 1}
 
 \subsubsection{Running Time}
 
-There is no denying the fact that running time for loop 1 is identical for guided, 4 and affinity scheduling options based on Figure 1. This happens because for the specific problem the schedulers operate more or less the same way.
+There is no denying the fact that running time for loop 1 is almost identical for guided, 4 and affinity scheduling options based on Figure \ref{runningTimeLoop1}. This happens because for the specific problem the schedulers operate more or less the same way.
 
 Each of them takes an initial local set to run, based on the remaining load size and number of threads. Then dynamically finds the next fraction to execute. The size of this fraction is again calculated by the workload and number threads in both scheduling options.
 
-The only difference worth pointing out, in this case, is when the number of threads is small. Let's take the case running with two threads. In Guided, 4 scheduling the first thread is obliged to execute the first half of the heaviest weight iterations. In contrast, in affinity scheduling, the first Local Set will be possibly executed by both of the threads. This happens because the second Local Set contains fewer calculations. Eventually, if we add the race conditions over the first Local Set we end up with one thread delaying the other. This communication overhead results to the same execution time for both of the scheduling options.
+The only difference worth pointing out, in this case, is when the number of threads is small. Let's take the case running with two threads. In Guided, 4 scheduling, the first thread is obliged to execute the first half of the iterations which is the heaviest workload. In contrast, in affinity scheduling, the first Local Set will be possibly executed by both of the threads. This happens because the second Local Set contains fewer calculations. Eventually, if we add the race conditions over the first Local Set we end up with one thread delaying the other. This communication overhead results to the same execution time for both of the scheduling options.
 
-As we increase the number of threads, on both occasions Chunksizes become smaller. We have not a single thread carrying all of the work so communication is the only drawback. All of the threads in both of the scheduling options race in taking the next Chunk. This behavior again concludes to the same running time between our cases.
+As we increase the number of threads, on both occasions Chunksizes become smaller. We have multiple threads carrying the heavy work so communication is the only drawback. All of the threads in both of the scheduling options compete to take the next Chunk. The only difference that makes the guided, 4 scheduling a little bit faster is the minimum Chunksize. Guided, 4 restricts the thread to take at least 4 iterations, in contrary affinity scheduling has not such limitations which lead to the overall delay of affinity. This behavior again concludes to the similar running time between our cases.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.6]{../graphs/loop1_running_time.eps}
     \caption{Running Time Loop 1}
-    \label{Running Time Loop 1}
+    \label{runningTimeLoop1}
 \end{figure}
+
+At this point, we should point out that if the affinity scheduling had a way to define the minimum Chunksize, then the running time would have better results on the given problem.    
 
 \subsubsection{Speedup}
 
-When it comes to scalability affinity scheduling speeds up in a nearly linear fashion for 1 to 8 threads based on Figure 2. As long as we increase the number of threads beyond that point the rate of change declines slightly.
+When it comes to scalability affinity scheduling speeds up in a nearly linear fashion for 1 to 6 threads based on Figure \ref{speedupLoop1}. As long as we increase the number of threads beyond that point the rate of change declines slightly.
 
-The basic difference between the ideal and affinity speedup in the communication overhead when more and more threads are used the Chunksize is becoming even smaller and the need to obtain the next Chunk bigger. This characteristic leads to more race conditions. As a result, the delay is unavoidable so we could say that using 6 or 8 threads would be the optimal approach to solve this problem.
+The basic difference between the ideal and affinity speedup in the communication overhead when more and more threads are used, the Chunksize is becoming even smaller and the need to obtain the next Chunk bigger. This characteristic leads to more race conditions. As a result, the delay is unavoidable so we could say that using 6 threads would be the optimal approach to solve this problem with affinity scheduling.
+
+In contrast, despite the fact that guided, 4 scheduling speedup also increases linearly from 1 to 8 threads, after that point, its rate of change is altered. For more than 8 threads its speedup is increased in an exponential manner. This, as mentioned before, happens due to the fact that there is a limitation to the minimum Chunksize.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.6]{../graphs/loop1_speedup.eps}
     \caption{Speedup Loop 1}
-    \label{Speedup Loop 1}
+    \label{speedupLoop1}
 \end{figure}
 
 \subsection{Loop 2}
 
 \subsubsection{Running Time}
 
-When it comes to Loop 2 there are some interesting observations. Running with 1 to 6 threads based on Figure 3 the dynamic, 16 option seems much faster and scalable than affinity. Then the trend changes, dynamic scheduling preserves a constant running time but the affinity keeps improving.
+When it comes to Loop 2 there are some interesting observations. Running with 1 to 6 threads based on Figure \ref{runningTimeLoop2} the dynamic, 16 option seems much faster and scalable than affinity. Then the trend changes, dynamic scheduling preserves a constant running time but the affinity keeps improving.
 
-To be more specific, running the loop with 1 to 6 threads dynamic, 16 is the best configuration for this problem. This happens because, for the first outer iterations which are the most loaded, the threads share equally the calculations without the communication been an overhead. As we increase the number of threads those who take the latest Chunks are underutilized and consume most of the time in obtaining the next lightweight Chunk.
+To be more specific, running the loop with 4 threads dynamic, 16 is the best configuration for this problem. Based on Figure \ref{jmax}, the first 60 outer iterations are the most loaded. The threads share equally the calculations without the communication been an overhead. As we increase the number of threads those who take the latest Chunks are underutilized and consume most of the time in obtaining the next lightweight Chunk.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.6]{../graphs/jmax.eps}
+    \caption{Jmax value against Outer Loop Iteration in Loop 2}
+    \label{jmax}
+\end{figure}
 
 In contrast, the affinity scheduling option is more scalable for the whole experiment but with tinier changes in running time. As we increase the threads number when the latest of them finish with their Local Set, more are available to contribute calculation the first heavyweight iterations.
 
@@ -178,18 +219,18 @@ To sum up, the basic difference between these two scheduling options is that the
     \centering
     \includegraphics[scale=0.6]{../graphs/loop2_running_time.eps}
     \caption{Running Time Loop 2}
-    \label{Running Time Loop 2}
+    \label{runningTimeLoop2}
 \end{figure}
 
 \subsubsection{Speedup}
 
-When we compare the speedup of affinity scheduling with the ideal, as we increase the number of threads, Chunksizes become smaller so the workload is easier to be distributed. That happens until we use 6 threads, after that point again the communication becomes an overhead the speedup begins to decline like in Loop 1.
+According to Figure \ref{speedupLoop2}, when we compare the speedup of affinity scheduling with the ideal, as we increase the number of threads, Chunksizes become smaller so the workload is easier to be distributed. That happens until we use 8 threads, after that point again the communication becomes an overhead the speedup begins to decline like in Loop 1. In addition, it is plain to see that if we use more than 6 threads, dynamic, 16 scheduling speedup is constant. This happens because adding more threads after that point has no overall effect due to the fact that there are no additional heavy calculations.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.6]{../graphs/loop2_speedup.eps}
     \caption{Speedup Loop 2}
-    \label{Speedup Loop 2}
+    \label{speedupLoop2}
 \end{figure}
 
 \sectionVspacing
