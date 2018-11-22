@@ -6,7 +6,7 @@
 To build this project run
 
 ```
-make all;
+make loops2;
 ```
 
 ## Running
@@ -23,7 +23,7 @@ export OMP_NUM_THREADS=$NO_OF_THREADS;
 Backend
 
 ```
-qsub loops2.pbs;
+./run.sh
 ```
 
 ## Documentation

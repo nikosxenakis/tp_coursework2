@@ -136,13 +136,6 @@ Local_Set* get_most_loaded_local_set(Local_Set_Array* local_set_array, unsigned 
 
     tmp_local_set = local_set_array->arr[thread_id];
 
-    //Finds the load of the temporary Local Set without locking it
-    tmp_load = get_local_set_rem_load(tmp_local_set);
-
-    //Continues the loop if the temporary Local Set has smaller load than the best found until now
-    if(tmp_load <= max_load)
-      continue;
-
     //If this Local Set has bigger load it tries to lock it
     omp_set_lock(&(tmp_local_set->lock));
 

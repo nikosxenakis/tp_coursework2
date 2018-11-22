@@ -6,21 +6,26 @@
 #PBS -l select=1:ncpus=36
 
 cd $PBS_O_WORKDIR
- 
+
+#load compilers
 module load intel-compilers-17
 module load gcc
 
-DATA_FOLDER=./data
-DATA_FILE=$DATA_FOLDER/results_coursework2.txt
-rm $DATA_FILE
+DATA_FILE=./data/results_coursework2.txt
 
-echo "affinity" >> $DATA_FILE;
+MPIPROG=`basename $PBS_JOBNAME .pbs`
+
+echo "affinity" > $DATA_FILE;
+#run the project for different number of threads
 for THREADS in 1 2 4 6 8 12 16
 do
   echo "THREADS ${THREADS}" >> $DATA_FILE;
   export OMP_NUM_THREADS=$THREADS;
+  #run each configuration 20 times to reduce the noise
   for i in {1..20};
   do
-    ./loops2 >> $DATA_FILE;
+    ./$MPIPROG >> $DATA_FILE;
   done
 done
+
+wait

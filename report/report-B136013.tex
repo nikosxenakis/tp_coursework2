@@ -5,6 +5,12 @@
 \usepackage{listings}
 \usepackage{color}
 \usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{makecell}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\usepackage{tabu}
 
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
@@ -20,7 +26,7 @@
 	deletekeywords={...},            % if you want to delete keywords from the given language
 	escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
 	extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
-	frame=single,	                   % adds a frame around the code
+	frame=none,	                   % adds a frame around the code
 	keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
 	keywordstyle=\color{blue},       % keyword style
 	language=C,                 	 % the language of the code
@@ -112,53 +118,111 @@ If this is not the case the thread tries to get the next Chunk. We define Chunk 
 Once the thread has successfully obtained the new Chunk it calls the appropriate function to calculate the loop. This is where all of the loop calculations are done. The given parameters are the lowest and highest positions, which are contained in the next Chunk structure.
 
 \subsection{Syncronization}
-As mentioned before, synchronization is needed in the system to obtain the next Chunk. In terms of correctness, the implementation of this function has to ensure that each iteration is going to run exactly one time by one thread. This means that the returned Chunks will contain a unique workload that has not been executed before. Also, for efficiency reasons race conditions between threads have to be reduced in a specific manner to avoid unnecessary stalls. OpenMP provides the omp\_lock\_t object. This allows as to gain exclusive access to a Local Set, in order to get correct Chunks.
+As mentioned before, synchronization is needed in the scheduler to obtain the next Chunk. In terms of correctness, the implementation of this function has to ensure that each iteration is going to run exactly one time by one thread. This means that the returned Chunks will contain a unique workload that has not been executed before. Also, for efficiency reasons race conditions between threads have to be reduced in a specific manner to avoid unnecessary stalls. OpenMP provides the omp\_lock\_t object. This allows as to gain exclusive access to a Local Set, in order to get correct Chunks.
 
 The process to obtain the next Chunk is simple. In the beginning, a thread tries to acquire the next Chunk from its Local Set if this is successful it returns with the Chunk if not it has to steal workload for the most loaded thread.
 
-To find the most loaded thread we have to iterate the array of the Local Sets, peek the remaining workload and if it is the biggest seen until now we try to lock it and acquire it as the next to execute Chunk. If the Chunksize is smaller than the one that we have found in this array we ignore it without any attempt to lock it. We can denote that this approach speeds up the process without unnecessary locks for less loaded Chunks. 
+To find the most loaded thread we have to iterate the array of Local Sets. Each time we lock the current Local Set and check its Chunksize. If its Chunksize is greater that the already locked we unlock the previous Local Set and continue the iteration.
 
-Our most loaded Local Set remains locked to avoid any other threads trying to steal it from us. When the scan is completed and it is assured that the most loaded Local Set is taken, we update the indexes and then unlock it. The update means that the lowest index is increased by the size of the new Chunksize. The new Chunksize is simply the remaining load of the Local Set divided by the number of threads. In this way, we guarantee that the selected Chunk is not executed by another thread. 
+Our most loaded Local Set remains locked to avoid any other threads trying to steal it from us. When the scan is completed and it is assured that the most loaded Local Set is taken, we update the indexes and then unlock it. By saying update, we mean that the lowest index is increased by the size of the new Chunksize. The new Chunksize is simply the remaining load of the Local Set divided by the number of threads. In this way, we guarantee that the selected Chunk is not executed by another thread. 
 
 Waiting to obtain the lock for the next Local Set is unavoidable, but deadlocks are eliminated because no matter what happens each thread will eventually unlock the selected Local Set.
 
+\subsubsection{Example}
+Let's take the case in Figure \ref{diagram1} that 3 threads are running over 3 Local Sets. Threads 1 and 2 are getting Chunk from its Local Sets accordingly. Thread 3 has finished with Local Set 3 so it waits over Local Set 1 to lock it.\\
+
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+		\node[draw] at (0, 3)   (t1) {\makecell[l]{Thread\\id = 1}};
+		\node[draw] at (3, 3)   (t2) {\makecell[l]{Thread\\id = 2}};
+		\node[draw] at (6, 3)   (t3) {\makecell[l]{Thread\\id = 3}};
+		
+		\node[draw] at (0, 0)   (ls1) {\makecell[l]{Local Set 1\\load = 18}};
+		\node[draw] at (3, 0)   (ls2) {\makecell[l]{Local Set 2\\load = 24}};
+		\node[draw] at (6, 0)   (ls3) {\makecell[l]{Local Set 3\\load = 0}};
+		
+		\draw[solid] (t1) -- (ls1);
+		\draw[solid] (t2) -- (ls2);
+		\draw[dotted] (t3) -- (ls1);
+	\end{tikzpicture}
+	\caption{Stage 1} \label{diagram1}
+\end{figure}
+
+
+Once Thread 1 and 2 has unlocked its Local Sets, Thread 3 can lock Local Set 1 as the most loaded, based on Figure \ref{diagram2}.\\
+
+According to Figure \ref{diagram3}, Thread 3 locks Local Set 2 and unlocks Local Set 1, because Local Set 2 is the most loaded until this point. In the meantime, while Thread 1 calculates its obtained Chunk from FIGURE 1, Thread 2 finished its caluclation and tries to lock Local Set 2. It has to wait until the Thread 3 unlocks it.\\
+ 
+ \begin{figure}[h!]
+ 	\centering
+ 	\begin{tikzpicture}
+ 	\node[draw] at (0, 3)   (t1) {\makecell[l]{Thread\\id = 1}};
+ 	\node[draw] at (3, 3)   (t2) {\makecell[l]{Thread\\id = 2}};
+ 	\node[draw] at (6, 3)   (t3) {\makecell[l]{Thread\\id = 3}};
+ 	
+ 	\node[draw] at (0, 0)   (ls1) {\makecell[l]{Local Set 1\\load = 12}};
+ 	\node[draw] at (3, 0)   (ls2) {\makecell[l]{Local Set 2\\load = 16}};
+ 	\node[draw] at (6, 0)   (ls3) {\makecell[l]{Local Set 3\\load = 0}};
+ 	
+ 	\draw[solid] (t3) -- (ls1);
+ 	\end{tikzpicture}
+ 	\caption{Stage 2} \label{diagram2}
+ \end{figure}
+
+ \begin{figure}[h!]
+ 	\centering
+ 	\begin{tikzpicture}
+		\node[draw] at (0, 3)   (t1) {\makecell[l]{Thread\\id = 1}};
+		\node[draw] at (3, 3)   (t2) {\makecell[l]{Thread\\id = 2}};
+		\node[draw] at (6, 3)   (t3) {\makecell[l]{Thread\\id = 3}};
+		
+		\node[draw] at (0, 0)   (ls1) {\makecell[l]{Local Set 1\\load = 12}};
+		\node[draw] at (3, 0)   (ls2) {\makecell[l]{Local Set 2\\load = 16}};
+		\node[draw] at (6, 0)   (ls3) {\makecell[l]{Local Set 3\\load = 0}};
+		
+		\draw[dotted] (t2) -- (ls2);
+		\draw[solid] (t3) -- (ls2);
+ 	\end{tikzpicture}
+ 	\caption{Stage 3} \label{diagram3}
+ \end{figure}
+
+This is an example that demonstrates when a Thread tries to steal workload from the others, if it Local Set has not remaining load.
+
 \subsection{Finilization}
-At the end of the loop, a function is called that is responsible to free the heap memory of the allocated Local\_Set\_Array. Just like the initialization phase, this method is called by the thread that arrives first in this section.
+At the end of the loop, when every Local Set is empty, a function is called that is responsible to free the heap memory of the allocated Local\_Set\_Array. Just like the initialization phase, this method is called by the thread that arrives first in this section.
 
-\sectionVspacing
+\clearpage
 
-\section{Evaluation}
+\section{Tools}
 
-\subsection{Tools}
-
+\subsection{Building}
 The programming language used for the development of the scheduler is C. As regards the compiler we have used GCC from the GNU Compiler Collection including the -O3 option to ensure a high level of optimization in the sequential part of the problem. In terms of building, GNU Make rules made to compile, run and clean the project.
 
-To clean the project execute:
-\begin{lstlisting}[language=bash]
-  $ make clean
-\end{lstlisting}
-
-To make the project execute:
-\begin{lstlisting}[language=bash]
-  $ make loops2
-\end{lstlisting}
-
 \subsection{Platform}
-
 We have evaluated the scheduler running our experiments on the backend of Cirrus supercomputer using 1, 2, 4, 6, 8, 12 and 16 threads. Then, we compared our results with the best scheduling options that we found in coursework 1 (guided, 4 for Loop 1 and dynamic, 16 for Loop 2). The evaluation process includes graphs for each loop of the running time and the speedup against the number of threads. In addition, the speedup graphs contain the ideal speedup.
 
 It worths mentioning that the measurements are a product of multiple runs over the loops, in order to reduce the noise in the timing results. To be more specific, the experiment has been executed 20 times for each thread configuration. This has been described in a Portable Batch System (PBS) script. Then the median values of each case have been used for the visual representations of the graphs.
 
-To run the project in Cirrus execute:
+To run the project in Cirrus execute
 \begin{lstlisting}[language=bash]
-  $ qsub loops2.pbs
+  $ ./run.sh
 \end{lstlisting}
 
-Once this job is done we have to run:
+This script will
+\begin{itemize}
+  \item Clean the the data/ and graphs/ folders
+  \item Clean the executable and objective code
+  \item Create the executable
+  \item Submit the job to the backend of Cirrus
+\end{itemize}
+
+When the job is done run the following script to analyze the exported data to create the appropriate graphs in the graphs/ folder
 \begin{lstlisting}[language=bash]
   $ python data_analyzer.py
 \end{lstlisting}
-This script will create the appropriate graphs for the specific experiment data/ folder
+
+\section{Evaluation}
 
 \subsection{Loop 1}
 
@@ -172,7 +236,7 @@ The only difference worth pointing out, in this case, is when the number of thre
 
 As we increase the number of threads, on both occasions Chunksizes become smaller. We have multiple threads carrying the heavy work so communication is the only drawback. All of the threads in both of the scheduling options compete to take the next Chunk. The only difference that makes the guided, 4 scheduling a little bit faster is the minimum Chunksize. Guided, 4 restricts the thread to take at least 4 iterations, in contrary affinity scheduling has not such limitations which lead to the overall delay of affinity. This behavior again concludes to the similar running time between our cases.
 
-\begin{figure}[ht]
+\begin{figure}[h!]
     \centering
     \includegraphics[scale=0.6]{../graphs/loop1_running_time.eps}
     \caption{Running Time Loop 1}
@@ -189,7 +253,7 @@ The basic difference between the ideal and affinity speedup in the communication
 
 In contrast, despite the fact that guided, 4 scheduling speedup also increases linearly from 1 to 8 threads, after that point, its rate of change is altered. For more than 8 threads its speedup is increased in an exponential manner. This, as mentioned before, happens due to the fact that there is a limitation to the minimum Chunksize.
 
-\begin{figure}[ht]
+\begin{figure}[h!]
     \centering
     \includegraphics[scale=0.6]{../graphs/loop1_speedup.eps}
     \caption{Speedup Loop 1}
@@ -204,7 +268,7 @@ When it comes to Loop 2 there are some interesting observations. Running with 1 
 
 To be more specific, running the loop with 4 threads dynamic, 16 is the best configuration for this problem. Based on Figure \ref{jmax}, the first 60 outer iterations are the most loaded. The threads share equally the calculations without the communication been an overhead. As we increase the number of threads those who take the latest Chunks are underutilized and consume most of the time in obtaining the next lightweight Chunk.
 
-\begin{figure}[ht]
+\begin{figure}[h!]
     \centering
     \includegraphics[scale=0.6]{../graphs/jmax.eps}
     \caption{Jmax value against Outer Loop Iteration in Loop 2}
@@ -215,7 +279,7 @@ In contrast, the affinity scheduling option is more scalable for the whole exper
 
 To sum up, the basic difference between these two scheduling options is that the affinity is able to redistribute heavy workload to other threads with a variety of Chunksize but dynamic is bound to calculate 16 iterations each time which is not optional for each of the threads configurations.
 
-\begin{figure}[ht]
+\begin{figure}[h!]
     \centering
     \includegraphics[scale=0.6]{../graphs/loop2_running_time.eps}
     \caption{Running Time Loop 2}
@@ -224,7 +288,7 @@ To sum up, the basic difference between these two scheduling options is that the
 
 \subsubsection{Speedup}
 
-According to Figure \ref{speedupLoop2}, when we compare the speedup of affinity scheduling with the ideal, as we increase the number of threads, Chunksizes become smaller so the workload is easier to be distributed. That happens until we use 8 threads, after that point again the communication becomes an overhead the speedup begins to decline like in Loop 1. In addition, it is plain to see that if we use more than 6 threads, dynamic, 16 scheduling speedup is constant. This happens because adding more threads after that point has no overall effect due to the fact that there are no additional heavy calculations.
+According to Figure \ref{speedupLoop2}, when we compare the speedup of affinity scheduling with the ideal, as we increase the number of threads, Chunksizes become smaller so the workload is easier to be distributed. In addition, it is plain to see that if we use more than 6 threads, dynamic, 16 scheduling speedup is constant. This happens because adding more threads after that point has no overall effect due to the fact that there are no additional heavy calculations.
 
 \begin{figure}[ht]
     \centering

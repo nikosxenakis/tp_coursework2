@@ -25,9 +25,9 @@ $(BIN): $(OBJ_FILES)
 	@mkdir -p $(BIN_DIR)
 	$(CC) $(CFLAGS) $(OBJ_FILES) -o $@
 
-all: $(BIN)
-	@echo "$(BIN) ready."
-
 clean:
 	@echo " Cleaning..."
-	rm -r $(BIN)
+	rm -f $(BIN)
+	rm -f $(SRC_DIR)/*.o
+
+.PHONY: $(BIN) clean

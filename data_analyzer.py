@@ -84,14 +84,14 @@ def parse_results_coursework2(data_file):
         loop1 = get_next_string(line, loop1_time)
         if loop1 is not None:
             loop1_all.append(float(loop1))
-            if len(loop1_all) == 18:
+            if len(loop1_all) == 20:
                 mean = median(loop1_all)
                 loop1_all = []
                 f.write("%s\taffinity\t1\t%f\n" % (threads, mean))
         loop2 = get_next_string(line, loop2_time)
         if loop2 is not None:
             loop2_all.append(float(loop2))
-            if len(loop2_all) == 18:
+            if len(loop2_all) == 20:
                 mean = median(loop2_all)
                 loop2_all = []
                 f.write("%s\taffinity\t2\t%f\n" % (threads, mean))
@@ -250,31 +250,28 @@ def analyze_data_speedup(data_file, loop_no):
         )
 
 
-
+#create jmax graph
 path = './data/jmax.tsv'
-if os.path.exists(path):
-    f = open(path, 'r')
-    analyze_jmax(f)
+f = open(path, 'r')
+analyze_jmax(f)
 
+#parse results to create ./data/data_coursework2.tsv 
 path = './data/results_coursework2.txt'
-if os.path.exists(path):
-    f = open(path, 'r')
-    parse_results_coursework2(f)
+f = open(path, 'r')
+parse_results_coursework2(f)
 
+#parse ./data/data_coursework1.tsv and ./data/data_coursework2.tsv to create the merged ./data/results.tsv results
 path1 = './data/data_coursework1.tsv'
 path2 = './data/data_coursework2.tsv'
-if os.path.exists(path1) and os.path.exists(path2):
-    f1 = open(path1, 'r')
-    f2 = open(path2, 'r')
-    merge_coursework_results(f1, f2)
+f1 = open(path1, 'r')
+f2 = open(path2, 'r')
+merge_coursework_results(f1, f2)
 
+#analyze ./data/results.tsv to create the appropriate graphs
 path = './data/results.tsv'
-if os.path.exists(path):
+
+for loop in [1, 2]:
     f = open(path, 'r')
-    analyze_data(f, 1)
+    analyze_data(f, loop)
     f = open(path, 'r')
-    analyze_data(f, 2)
-    f = open(path, 'r')
-    analyze_data_speedup(f, 1)
-    f = open(path, 'r')
-    analyze_data_speedup(f, 2)
+    analyze_data_speedup(f, loop)
