@@ -139,7 +139,7 @@ def analyze_jmax(data_file):
     )
 
 
-def analyze_data(data_file, loop_no):
+def analyze_data_running_time(data_file, loop_no):
 
     i = 0;
 
@@ -254,11 +254,13 @@ def analyze_data_speedup(data_file, loop_no):
 path = './data/jmax.tsv'
 f = open(path, 'r')
 analyze_jmax(f)
+f.close()
 
 #parse results to create ./data/data_coursework2.tsv 
 path = './data/results_coursework2.txt'
 f = open(path, 'r')
 parse_results_coursework2(f)
+f.close()
 
 #parse ./data/data_coursework1.tsv and ./data/data_coursework2.tsv to create the merged ./data/results.tsv results
 path1 = './data/data_coursework1.tsv'
@@ -266,12 +268,18 @@ path2 = './data/data_coursework2.tsv'
 f1 = open(path1, 'r')
 f2 = open(path2, 'r')
 merge_coursework_results(f1, f2)
+f1.close()
+f2.close()
 
 #analyze ./data/results.tsv to create the appropriate graphs
 path = './data/results.tsv'
 
 for loop in [1, 2]:
     f = open(path, 'r')
-    analyze_data(f, loop)
+    #create running time graphs
+    analyze_data_running_time(f, loop)
+    f.close()
     f = open(path, 'r')
+    #create speedup graphs
     analyze_data_speedup(f, loop)
+    f.close()

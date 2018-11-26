@@ -11,6 +11,7 @@ cd $PBS_O_WORKDIR
 module load intel-compilers-17
 module load gcc
 
+#data results file
 DATA_FILE=./data/results_coursework2.txt
 
 MPIPROG=`basename $PBS_JOBNAME .pbs`
