@@ -1,568 +1,568 @@
 affinity
 THREADS 1
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 1.804113
+Total time for 1000 reps of loop 1 = 1.801279
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 9.673606
+Total time for 1000 reps of loop 2 = 8.741068
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 1.759793
+Total time for 1000 reps of loop 1 = 1.759095
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 8.742591
+Total time for 1000 reps of loop 2 = 8.738591
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 1.758833
+Total time for 1000 reps of loop 1 = 1.759992
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 8.736468
+Total time for 1000 reps of loop 2 = 8.741273
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 1.760800
+Total time for 1000 reps of loop 1 = 1.759746
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 8.737761
+Total time for 1000 reps of loop 2 = 8.740641
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 1.758820
+Total time for 1000 reps of loop 1 = 1.760455
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 8.745234
+Total time for 1000 reps of loop 2 = 8.743147
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 1.760480
+Total time for 1000 reps of loop 1 = 1.759868
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 8.741040
+Total time for 1000 reps of loop 2 = 8.732857
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 1.758916
+Total time for 1000 reps of loop 1 = 1.760763
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 8.742228
+Total time for 1000 reps of loop 2 = 8.736555
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 1.760500
+Total time for 1000 reps of loop 1 = 1.759222
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 8.736643
+Total time for 1000 reps of loop 2 = 8.731815
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 1.760986
+Total time for 1000 reps of loop 1 = 1.760075
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 8.737383
+Total time for 1000 reps of loop 2 = 8.738098
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 1.760756
+Total time for 1000 reps of loop 1 = 1.758986
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 8.718153
+Total time for 1000 reps of loop 2 = 8.738999
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 1.759038
+Total time for 1000 reps of loop 1 = 1.761141
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 8.738149
+Total time for 1000 reps of loop 2 = 8.738230
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 1.760510
+Total time for 1000 reps of loop 1 = 1.759521
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 8.742357
+Total time for 1000 reps of loop 2 = 8.735284
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 1.760003
+Total time for 1000 reps of loop 1 = 1.760366
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 8.733227
+Total time for 1000 reps of loop 2 = 8.740654
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 1.761254
+Total time for 1000 reps of loop 1 = 1.759936
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 8.731998
+Total time for 1000 reps of loop 2 = 8.734945
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 1.759168
+Total time for 1000 reps of loop 1 = 1.760769
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 8.738429
+Total time for 1000 reps of loop 2 = 8.743764
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 1.760547
+Total time for 1000 reps of loop 1 = 1.759270
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 8.729496
+Total time for 1000 reps of loop 2 = 8.739771
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 1.760469
+Total time for 1000 reps of loop 1 = 1.759075
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 8.739101
+Total time for 1000 reps of loop 2 = 8.745721
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 1.761441
+Total time for 1000 reps of loop 1 = 1.759996
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 8.740665
+Total time for 1000 reps of loop 2 = 8.738168
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 1.759298
+Total time for 1000 reps of loop 1 = 1.758563
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 8.740173
+Total time for 1000 reps of loop 2 = 8.738763
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 1.761288
+Total time for 1000 reps of loop 1 = 1.759717
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 8.737797
+Total time for 1000 reps of loop 2 = 8.737741
 THREADS 2
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.909102
+Total time for 1000 reps of loop 1 = 0.911519
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 6.269293
+Total time for 1000 reps of loop 2 = 6.268717
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.888864
+Total time for 1000 reps of loop 1 = 0.889409
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 6.263676
+Total time for 1000 reps of loop 2 = 6.265865
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.889501
+Total time for 1000 reps of loop 1 = 0.889679
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 6.263686
+Total time for 1000 reps of loop 2 = 6.271557
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.889191
+Total time for 1000 reps of loop 1 = 0.890014
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 6.264523
+Total time for 1000 reps of loop 2 = 6.269963
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.888954
+Total time for 1000 reps of loop 1 = 0.888948
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 6.270235
+Total time for 1000 reps of loop 2 = 6.272269
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.889820
+Total time for 1000 reps of loop 1 = 0.888964
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 6.266595
+Total time for 1000 reps of loop 2 = 6.272342
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.889676
+Total time for 1000 reps of loop 1 = 0.889272
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 6.269720
+Total time for 1000 reps of loop 2 = 6.266030
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.889376
+Total time for 1000 reps of loop 1 = 0.888946
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 6.263864
+Total time for 1000 reps of loop 2 = 6.265797
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.889558
+Total time for 1000 reps of loop 1 = 0.888833
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 6.263949
+Total time for 1000 reps of loop 2 = 6.269181
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.888787
+Total time for 1000 reps of loop 1 = 0.889459
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 6.251126
+Total time for 1000 reps of loop 2 = 6.263599
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.888866
+Total time for 1000 reps of loop 1 = 0.889572
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 6.269799
+Total time for 1000 reps of loop 2 = 6.263160
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.888903
+Total time for 1000 reps of loop 1 = 0.888347
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 6.258748
+Total time for 1000 reps of loop 2 = 6.269176
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.889205
+Total time for 1000 reps of loop 1 = 0.888411
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 6.266968
+Total time for 1000 reps of loop 2 = 6.272436
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.890009
+Total time for 1000 reps of loop 1 = 0.889383
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 6.264563
+Total time for 1000 reps of loop 2 = 6.260327
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.889189
+Total time for 1000 reps of loop 1 = 0.888544
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 6.269190
+Total time for 1000 reps of loop 2 = 6.265771
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.889250
+Total time for 1000 reps of loop 1 = 0.888915
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 6.267926
+Total time for 1000 reps of loop 2 = 6.265895
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.889319
+Total time for 1000 reps of loop 1 = 0.889391
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 6.269080
+Total time for 1000 reps of loop 2 = 6.256458
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.890491
+Total time for 1000 reps of loop 1 = 0.889512
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 6.263097
+Total time for 1000 reps of loop 2 = 6.262472
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.889116
+Total time for 1000 reps of loop 1 = 0.888635
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 6.270852
+Total time for 1000 reps of loop 2 = 6.268468
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.889225
+Total time for 1000 reps of loop 1 = 0.888431
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 6.271261
+Total time for 1000 reps of loop 2 = 6.270267
 THREADS 4
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.464403
+Total time for 1000 reps of loop 1 = 0.464052
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 4.443158
+Total time for 1000 reps of loop 2 = 4.443831
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.444670
+Total time for 1000 reps of loop 1 = 0.520963
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 4.442196
+Total time for 1000 reps of loop 2 = 4.446242
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.443421
+Total time for 1000 reps of loop 1 = 0.453458
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 4.439216
+Total time for 1000 reps of loop 2 = 4.447054
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.443931
+Total time for 1000 reps of loop 1 = 0.463629
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 4.446221
+Total time for 1000 reps of loop 2 = 4.444828
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.444356
+Total time for 1000 reps of loop 1 = 0.443841
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 4.443407
+Total time for 1000 reps of loop 2 = 4.445312
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.444010
+Total time for 1000 reps of loop 1 = 0.443553
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 4.445971
+Total time for 1000 reps of loop 2 = 4.443905
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.443624
+Total time for 1000 reps of loop 1 = 0.454229
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 4.442553
+Total time for 1000 reps of loop 2 = 4.443917
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.444123
+Total time for 1000 reps of loop 1 = 0.455230
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 4.443836
+Total time for 1000 reps of loop 2 = 4.441630
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.454248
+Total time for 1000 reps of loop 1 = 0.492336
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 4.441157
+Total time for 1000 reps of loop 2 = 4.458886
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.453939
+Total time for 1000 reps of loop 1 = 0.452087
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 4.439586
+Total time for 1000 reps of loop 2 = 4.442966
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.444034
+Total time for 1000 reps of loop 1 = 0.443548
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 4.445565
+Total time for 1000 reps of loop 2 = 4.441057
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.443643
+Total time for 1000 reps of loop 1 = 0.444743
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 4.447439
+Total time for 1000 reps of loop 2 = 4.441900
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.444093
+Total time for 1000 reps of loop 1 = 0.443883
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 4.445303
+Total time for 1000 reps of loop 2 = 4.445369
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.447075
+Total time for 1000 reps of loop 1 = 0.443258
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 4.442441
+Total time for 1000 reps of loop 2 = 4.440691
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.443741
+Total time for 1000 reps of loop 1 = 0.443774
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 4.445510
+Total time for 1000 reps of loop 2 = 4.441061
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.445779
+Total time for 1000 reps of loop 1 = 0.443605
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 4.443505
+Total time for 1000 reps of loop 2 = 4.444019
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.443634
+Total time for 1000 reps of loop 1 = 0.444736
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 4.444844
+Total time for 1000 reps of loop 2 = 4.435411
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.443978
+Total time for 1000 reps of loop 1 = 0.456132
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 4.445427
+Total time for 1000 reps of loop 2 = 4.443829
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.443597
+Total time for 1000 reps of loop 1 = 0.454232
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 4.440778
+Total time for 1000 reps of loop 2 = 4.920246
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.454601
+Total time for 1000 reps of loop 1 = 0.453685
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 4.445003
+Total time for 1000 reps of loop 2 = 4.441993
 THREADS 6
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.335381
+Total time for 1000 reps of loop 1 = 0.325227
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 2.619118
+Total time for 1000 reps of loop 2 = 2.619239
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.315808
+Total time for 1000 reps of loop 1 = 0.333137
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 2.620612
+Total time for 1000 reps of loop 2 = 2.620472
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.309103
+Total time for 1000 reps of loop 1 = 0.316083
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 2.621253
+Total time for 1000 reps of loop 2 = 2.618075
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.308631
+Total time for 1000 reps of loop 1 = 0.308739
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 2.620751
+Total time for 1000 reps of loop 2 = 2.616645
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.331595
+Total time for 1000 reps of loop 1 = 0.309055
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 2.619387
+Total time for 1000 reps of loop 2 = 2.618267
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.315558
+Total time for 1000 reps of loop 1 = 0.308746
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 2.618174
+Total time for 1000 reps of loop 2 = 2.621575
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.336313
+Total time for 1000 reps of loop 1 = 0.336269
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 2.619066
+Total time for 1000 reps of loop 2 = 2.620389
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.316276
+Total time for 1000 reps of loop 1 = 0.315655
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 2.618964
+Total time for 1000 reps of loop 2 = 2.620481
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.335596
+Total time for 1000 reps of loop 1 = 0.308468
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 2.619006
+Total time for 1000 reps of loop 2 = 2.618523
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.339732
+Total time for 1000 reps of loop 1 = 0.317724
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 2.618784
+Total time for 1000 reps of loop 2 = 2.620322
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.309495
+Total time for 1000 reps of loop 1 = 0.345186
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 2.619914
+Total time for 1000 reps of loop 2 = 2.618706
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.308653
+Total time for 1000 reps of loop 1 = 0.342230
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 2.619409
+Total time for 1000 reps of loop 2 = 2.620038
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.336961
+Total time for 1000 reps of loop 1 = 0.362821
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 2.619497
+Total time for 1000 reps of loop 2 = 2.618890
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.328546
+Total time for 1000 reps of loop 1 = 0.315611
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 2.620561
+Total time for 1000 reps of loop 2 = 2.618914
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.344322
+Total time for 1000 reps of loop 1 = 0.309010
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 2.620248
+Total time for 1000 reps of loop 2 = 2.621175
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.313869
+Total time for 1000 reps of loop 1 = 0.308538
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 2.619335
+Total time for 1000 reps of loop 2 = 2.619985
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.315521
+Total time for 1000 reps of loop 1 = 0.336083
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 2.619040
+Total time for 1000 reps of loop 2 = 2.619293
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.330188
+Total time for 1000 reps of loop 1 = 0.316032
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 2.619763
+Total time for 1000 reps of loop 2 = 2.620569
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.316237
+Total time for 1000 reps of loop 1 = 0.309356
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 2.620958
+Total time for 1000 reps of loop 2 = 2.617634
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.338153
+Total time for 1000 reps of loop 1 = 0.308999
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 2.619945
+Total time for 1000 reps of loop 2 = 2.618493
 THREADS 8
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.257847
+Total time for 1000 reps of loop 1 = 0.258997
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 1.580417
+Total time for 1000 reps of loop 2 = 1.580648
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.251426
+Total time for 1000 reps of loop 1 = 0.271471
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 1.581727
+Total time for 1000 reps of loop 2 = 1.579427
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.249945
+Total time for 1000 reps of loop 1 = 0.248637
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 1.582422
+Total time for 1000 reps of loop 2 = 1.580337
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.244800
+Total time for 1000 reps of loop 1 = 0.277753
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 1.582013
+Total time for 1000 reps of loop 2 = 1.582884
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.244195
+Total time for 1000 reps of loop 1 = 0.252595
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 1.582032
+Total time for 1000 reps of loop 2 = 1.579268
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.268913
+Total time for 1000 reps of loop 1 = 0.289126
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 1.580150
+Total time for 1000 reps of loop 2 = 1.588331
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.255116
+Total time for 1000 reps of loop 1 = 0.252630
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 1.581153
+Total time for 1000 reps of loop 2 = 1.579016
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.244261
+Total time for 1000 reps of loop 1 = 0.258196
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 1.582564
+Total time for 1000 reps of loop 2 = 1.579864
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.257169
+Total time for 1000 reps of loop 1 = 0.277695
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 1.579456
+Total time for 1000 reps of loop 2 = 1.580723
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.249442
+Total time for 1000 reps of loop 1 = 0.247941
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 1.581361
+Total time for 1000 reps of loop 2 = 1.580449
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.257235
+Total time for 1000 reps of loop 1 = 0.249643
 Loop 2 check: Sum of c is -25242644.603147
 Total time for 1000 reps of loop 2 = 1.579805
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.257856
+Total time for 1000 reps of loop 1 = 0.248858
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 1.580630
+Total time for 1000 reps of loop 2 = 1.580050
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.262093
+Total time for 1000 reps of loop 1 = 0.255958
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 1.580137
+Total time for 1000 reps of loop 2 = 1.579535
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.248523
+Total time for 1000 reps of loop 1 = 0.248647
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 1.582167
+Total time for 1000 reps of loop 2 = 1.580926
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.251855
+Total time for 1000 reps of loop 1 = 0.243811
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 1.582450
+Total time for 1000 reps of loop 2 = 1.580475
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.270966
+Total time for 1000 reps of loop 1 = 0.243839
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 1.580524
+Total time for 1000 reps of loop 2 = 1.579911
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.254958
+Total time for 1000 reps of loop 1 = 0.244532
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 1.581650
+Total time for 1000 reps of loop 2 = 1.580387
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.269891
+Total time for 1000 reps of loop 1 = 0.244341
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 1.584140
+Total time for 1000 reps of loop 2 = 1.579907
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.259991
+Total time for 1000 reps of loop 1 = 0.279971
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 1.581821
+Total time for 1000 reps of loop 2 = 1.580210
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.265156
+Total time for 1000 reps of loop 1 = 0.248079
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 1.581135
+Total time for 1000 reps of loop 2 = 1.579498
 THREADS 12
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.215736
+Total time for 1000 reps of loop 1 = 0.207622
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.907198
+Total time for 1000 reps of loop 2 = 0.906195
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.201293
+Total time for 1000 reps of loop 1 = 0.195135
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.884147
+Total time for 1000 reps of loop 2 = 0.905133
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.215572
+Total time for 1000 reps of loop 1 = 0.211755
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.899864
+Total time for 1000 reps of loop 2 = 0.907203
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.211379
+Total time for 1000 reps of loop 1 = 0.197340
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.912906
+Total time for 1000 reps of loop 2 = 0.904888
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.206313
+Total time for 1000 reps of loop 1 = 0.216728
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.909383
+Total time for 1000 reps of loop 2 = 0.920555
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.207601
+Total time for 1000 reps of loop 1 = 0.198015
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.877258
+Total time for 1000 reps of loop 2 = 0.901531
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.202560
+Total time for 1000 reps of loop 1 = 0.210985
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.910695
+Total time for 1000 reps of loop 2 = 1.017135
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.219353
+Total time for 1000 reps of loop 1 = 0.205969
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.912669
+Total time for 1000 reps of loop 2 = 0.894297
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.208208
+Total time for 1000 reps of loop 1 = 0.199891
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.891125
+Total time for 1000 reps of loop 2 = 0.915037
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.199769
+Total time for 1000 reps of loop 1 = 0.200078
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.895180
+Total time for 1000 reps of loop 2 = 0.903302
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.210545
+Total time for 1000 reps of loop 1 = 0.199988
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.928197
+Total time for 1000 reps of loop 2 = 0.901060
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.201642
+Total time for 1000 reps of loop 1 = 0.204534
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.881587
+Total time for 1000 reps of loop 2 = 0.904065
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.196730
+Total time for 1000 reps of loop 1 = 0.209950
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.887646
+Total time for 1000 reps of loop 2 = 0.926617
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.217919
+Total time for 1000 reps of loop 1 = 0.210492
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.928923
+Total time for 1000 reps of loop 2 = 0.900303
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.204562
+Total time for 1000 reps of loop 1 = 0.215498
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.926668
+Total time for 1000 reps of loop 2 = 0.904782
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.223950
+Total time for 1000 reps of loop 1 = 0.198172
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.886508
+Total time for 1000 reps of loop 2 = 0.905794
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.200925
+Total time for 1000 reps of loop 1 = 0.193449
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.894005
+Total time for 1000 reps of loop 2 = 0.891214
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.244306
+Total time for 1000 reps of loop 1 = 0.191803
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.947129
+Total time for 1000 reps of loop 2 = 0.903059
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.209808
+Total time for 1000 reps of loop 1 = 0.217333
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 1.008248
+Total time for 1000 reps of loop 2 = 0.996598
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.203556
+Total time for 1000 reps of loop 1 = 0.200885
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.873250
+Total time for 1000 reps of loop 2 = 0.909776
 THREADS 16
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.131199
+Total time for 1000 reps of loop 1 = 0.203665
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.864048
+Total time for 1000 reps of loop 2 = 0.836752
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.141874
+Total time for 1000 reps of loop 1 = 0.197897
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.873635
+Total time for 1000 reps of loop 2 = 0.915188
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.146245
+Total time for 1000 reps of loop 1 = 0.188390
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.871246
+Total time for 1000 reps of loop 2 = 0.799384
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.137528
+Total time for 1000 reps of loop 1 = 0.195196
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.825194
+Total time for 1000 reps of loop 2 = 0.857586
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.150521
+Total time for 1000 reps of loop 1 = 0.189875
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.864833
+Total time for 1000 reps of loop 2 = 0.866711
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.138480
+Total time for 1000 reps of loop 1 = 0.191542
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.859602
+Total time for 1000 reps of loop 2 = 0.845002
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.188324
+Total time for 1000 reps of loop 1 = 0.190259
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.850910
+Total time for 1000 reps of loop 2 = 0.863191
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.195171
+Total time for 1000 reps of loop 1 = 0.207010
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.859901
+Total time for 1000 reps of loop 2 = 0.844535
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.136298
+Total time for 1000 reps of loop 1 = 0.210861
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.823592
+Total time for 1000 reps of loop 2 = 0.867385
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.203819
+Total time for 1000 reps of loop 1 = 0.195979
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.849219
+Total time for 1000 reps of loop 2 = 0.814092
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.208845
+Total time for 1000 reps of loop 1 = 0.189029
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.857585
+Total time for 1000 reps of loop 2 = 0.847850
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.136052
+Total time for 1000 reps of loop 1 = 0.195469
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.840395
+Total time for 1000 reps of loop 2 = 0.862004
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.183298
+Total time for 1000 reps of loop 1 = 0.203003
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.854015
+Total time for 1000 reps of loop 2 = 0.837234
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.211029
+Total time for 1000 reps of loop 1 = 0.204113
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.840458
+Total time for 1000 reps of loop 2 = 0.856430
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.205868
+Total time for 1000 reps of loop 1 = 0.186541
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.874418
+Total time for 1000 reps of loop 2 = 0.808380
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.197406
+Total time for 1000 reps of loop 1 = 0.184709
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.133791
+Total time for 1000 reps of loop 2 = 0.799120
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.209284
+Total time for 1000 reps of loop 1 = 0.207715
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.854587
+Total time for 1000 reps of loop 2 = 0.836716
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.194214
+Total time for 1000 reps of loop 1 = 0.192185
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.855185
+Total time for 1000 reps of loop 2 = 0.850246
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.130162
+Total time for 1000 reps of loop 1 = 0.246574
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.864075
+Total time for 1000 reps of loop 2 = 0.812143
 Loop 1 check: Sum of a is -343021.474766
-Total time for 1000 reps of loop 1 = 0.137705
+Total time for 1000 reps of loop 1 = 0.190790
 Loop 2 check: Sum of c is -25242644.603147
-Total time for 1000 reps of loop 2 = 0.861486
+Total time for 1000 reps of loop 2 = 0.797305

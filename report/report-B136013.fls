@@ -151,6 +151,17 @@ INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/tex/late
 INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tabu/tabu.sty
 INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/tex/latex/varwidth/varwidth.sty
 INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/tex/latex/varwidth/varwidth.sty
+INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/tex/latex/realboxes/realboxes.sty
+INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/tex/latex/realboxes/realboxes.sty
+INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/tex/latex/collectbox/collectbox.sty
+INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/tex/latex/collectbox/collectbox.sty
+INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/tex/latex/adjustbox/adjcalc.sty
+INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/tex/latex/adjustbox/adjcalc.sty
+INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/tex/latex/adjustbox/adjcalc.sty
+INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/tex/latex/xkeyval/xkeyval.sty
+INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/tex/latex/xkeyval/xkeyval.sty
+INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/tex/generic/xkeyval/xkeyval.tex
+INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/tex/generic/xkeyval/xkvutils.tex
 INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/tex/latex/listings/lstlang1.sty
 INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/tex/latex/listings/lstlang1.sty
 INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/tex/latex/listings/lstmisc.sty
@@ -256,20 +267,20 @@ INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/tex/late
 INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/tex/latex/listings/lstlang1.sty
 INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/adobe/times/ptmr8t.tfm
 INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/adobe/times/ptmr8t.tfm
+INPUT ../graphs/loop1_running_time.eps
+INPUT ../graphs/loop1_running_time.eps
+INPUT ../graphs/loop1_running_time.eps
+INPUT ../graphs/loop1_running_time-eps-converted-to.pdf
+INPUT ../graphs/loop1_running_time-eps-converted-to.pdf
+INPUT ../graphs/loop1_running_time.eps
+INPUT ../graphs/loop1_running_time-eps-converted-to.pdf
+INPUT ../graphs/loop1_running_time-eps-converted-to.pdf
+INPUT ../graphs/loop1_running_time-eps-converted-to.pdf
+INPUT ../graphs/loop1_running_time-eps-converted-to.pdf
 INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/fonts/vf/adobe/times/ptmr8t.vf
 INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/fonts/vf/adobe/times/ptmr8t.vf
 INPUT /Users/xenis656/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/adobe/times/ptmr8r.tfm
-INPUT ../graphs/loop1_running_time.eps
-INPUT ../graphs/loop1_running_time.eps
-INPUT ../graphs/loop1_running_time.eps
-INPUT ../graphs/loop1_running_time-eps-converted-to.pdf
-INPUT ../graphs/loop1_running_time-eps-converted-to.pdf
-INPUT ../graphs/loop1_running_time.eps
-INPUT ../graphs/loop1_running_time-eps-converted-to.pdf
-INPUT ../graphs/loop1_running_time-eps-converted-to.pdf
-INPUT ../graphs/loop1_running_time-eps-converted-to.pdf
-INPUT ../graphs/loop1_running_time-eps-converted-to.pdf
 INPUT ../graphs/loop1_speedup.eps
 INPUT ../graphs/loop1_speedup.eps
 INPUT ../graphs/loop1_speedup.eps
@@ -280,16 +291,6 @@ INPUT ../graphs/loop1_speedup-eps-converted-to.pdf
 INPUT ../graphs/loop1_speedup-eps-converted-to.pdf
 INPUT ../graphs/loop1_speedup-eps-converted-to.pdf
 INPUT ../graphs/loop1_speedup-eps-converted-to.pdf
-INPUT ../graphs/jmax.eps
-INPUT ../graphs/jmax.eps
-INPUT ../graphs/jmax.eps
-INPUT ../graphs/jmax-eps-converted-to.pdf
-INPUT ../graphs/jmax-eps-converted-to.pdf
-INPUT ../graphs/jmax.eps
-INPUT ../graphs/jmax-eps-converted-to.pdf
-INPUT ../graphs/jmax-eps-converted-to.pdf
-INPUT ../graphs/jmax-eps-converted-to.pdf
-INPUT ../graphs/jmax-eps-converted-to.pdf
 INPUT ../graphs/loop2_running_time.eps
 INPUT ../graphs/loop2_running_time.eps
 INPUT ../graphs/loop2_running_time.eps
@@ -300,6 +301,16 @@ INPUT ../graphs/loop2_running_time-eps-converted-to.pdf
 INPUT ../graphs/loop2_running_time-eps-converted-to.pdf
 INPUT ../graphs/loop2_running_time-eps-converted-to.pdf
 INPUT ../graphs/loop2_running_time-eps-converted-to.pdf
+INPUT ../graphs/jmax.eps
+INPUT ../graphs/jmax.eps
+INPUT ../graphs/jmax.eps
+INPUT ../graphs/jmax-eps-converted-to.pdf
+INPUT ../graphs/jmax-eps-converted-to.pdf
+INPUT ../graphs/jmax.eps
+INPUT ../graphs/jmax-eps-converted-to.pdf
+INPUT ../graphs/jmax-eps-converted-to.pdf
+INPUT ../graphs/jmax-eps-converted-to.pdf
+INPUT ../graphs/jmax-eps-converted-to.pdf
 INPUT ../graphs/loop2_speedup.eps
 INPUT ../graphs/loop2_speedup.eps
 INPUT ../graphs/loop2_speedup.eps

@@ -101,7 +101,7 @@ In order to analyze the design, the definition of basic terminology is required.
 The scheduler has been designed with the necessary data structures and functions that hold vital information about the progress of the loop and each thread's workload. The functions containing the body of the loop has not been changed. The only modifications made are in runloop function providing the right Chunks for the loop.
 
 \subsection{Initialization}
-First and foremost, an OMP parallel region is created, with 2 shared variables. These variables are the loopid which determines which loop is running and a uninitialized pointer to Local\_Set\_Array, which will hold all the information for loop's progress. Then an initialization function is called that only one of the threads has to execute (first arrived thread). This function takes as input the number of iterations in the loop and the number of the active threads for this job to create a Local\_Set\_Array.
+First and foremost, an OMP parallel region is created, with 2 shared variables. These variables are the loopid which determines which loop is running and an uninitialized pointer to Local\_Set\_Array, which will hold all the information for loop's progress. Then an initialization function is called that only one of the threads has to execute (first arrived thread). This function takes as input the number of iterations in the loop and the number of the active threads for this job to create a Local\_Set\_Array.
 
 The Local\_Set\_Array is a C structure that contains an array of Local\_Set. Each thread can access a Local\_Set using a thread id as an index. For example, if we want to obtain the Local\_Set for thread number 4, the only thing we have to do is to look up for the fourth object in the array of Local\_Set\_Array structure. A Local\_Set in our implementation is a data structure containing:
 
@@ -123,7 +123,7 @@ As mentioned before, synchronization is needed in the scheduler to obtain the ne
 
 The process to obtain the next Chunk is simple. In the beginning, a thread tries to acquire the next Chunk from its Local Set if this is successful it returns with the Chunk if not it has to steal workload for the most loaded thread.
 
-To find the most loaded thread we have to iterate the array of Local Sets. Each time we lock the current Local Set and check its Chunksize. If its Chunksize is greater that the already locked we unlock the previous Local Set and continue the iteration.
+To find the most loaded thread we have to iterate the array of Local Sets. Each time we lock the current Local Set and check its Chunksize. If its Chunksize is greater than the already locked we unlock the previous Local Set and continue the iteration.
 
 Our most loaded Local Set remains locked to avoid any other threads trying to steal it from us. When the scan is completed and it is assured that the most loaded Local Set is taken, we update the indexes and then unlock it. By saying update, we mean that the lowest index is increased by the size of the new Chunksize. The new Chunksize is simply the remaining load of the Local Set divided by the number of threads. In this way, we guarantee that the selected Chunk is not executed by another thread. 
 
@@ -153,7 +153,7 @@ Let's take the case in Figure \ref{diagram1} that 3 threads are running over 3 L
 
 Once Thread 1 and 2 has unlocked its Local Sets, Thread 3 can lock Local Set 1 as the most loaded, based on Figure \ref{diagram2}.\\
 
-According to Figure \ref{diagram3}, Thread 3 locks Local Set 2 and unlocks Local Set 1, because Local Set 2 is the most loaded until this point. In the meantime, while Thread 1 calculates its obtained Chunk from FIGURE 1, Thread 2 finished its caluclation and tries to lock Local Set 2. It has to wait until the Thread 3 unlocks it.\\
+According to Figure \ref{diagram3}, Thread 3 locks Local Set 2 and unlocks Local Set 1, because Local Set 2 is the most loaded until this point. In the meantime, while Thread 1 calculates its obtained Chunk from Figure 1, Thread 2 finished its caluclation and tries to lock Local Set 2. It has to wait until the Thread 3 unlocks it.\\
  
  \begin{figure}[h!]
  	\centering
@@ -212,7 +212,7 @@ To run the project in Cirrus execute
 
 This script will
 \begin{itemize}
-  \item Clean the the data/ and graphs/ folders
+  \item Clean the data/ and graphs/ folders
   \item Clean the executable and objective code
   \item Create the executable
   \item Submit the job to the backend of Cirrus
@@ -235,17 +235,17 @@ There is no denying the fact that running time for loop 1 is almost identical fo
 	\label{runningTimeLoop1}
 \end{figure}
 
-At the beginning, let's take the case running with two threads. In Guided, 4 scheduling, the first thread is obliged to execute the first half of the iterations which is the heaviest workload. In contrast, in affinity scheduling, the first Local Set will be possibly executed by both of the threads. This happens because the second Local Set contains fewer calculations. Eventually, if we take into consideration the race conditions over the first Local Set we end up with one thread delaying the other. This communication overhead apparently results to the same execution time for both of the scheduling options.
+In the beginning, let's take the case running with two threads. In Guided, 4 scheduling option, the first thread is obliged to execute the first half of the iterations which is the heaviest workload. In contrast, in affinity scheduling, the first Local Set will be possibly executed by both of the threads. This happens because the second Local Set contains fewer calculations. Eventually, if we take into consideration the race conditions over the first Local Set we end up with one thread delaying the other. This communication overhead apparently results to the same execution time for both of the scheduling options.
 
-As we increase the number of threads, on both occasions Chunksizes become smaller. We have multiple threads carrying the heavy work so communication is the only drawback. In both of the occasions, the heavy workload is distributed fairly among the thread. As a result, communication is the drawback. All of the threads in both of the scheduling options compete to take the next Chunk. The only difference that makes the guided, 4 scheduling a little bit faster is the minimum Chunksize. Guided, 4 obliges each thread to take at minumum 4 iterations to calculate. In contrary affinity scheduling has not such limitations which lead to the overall delay of affinity. Nevertheless, this behavior concludes to the similar running time between our cases.
+As we increase the number of threads, on both occasions Chunksizes become smaller. We have multiple threads carrying the heavy work so communication is the only drawback. In both of the occasions, the heavy workload is distributed fairly among the thread. As a result, communication is the drawback. All of the threads in both of the scheduling options compete to take the next Chunk. The only difference that makes the guided, 4 scheduling a little bit faster is the minimum Chunksize. Guided, 4 obliges each thread to take at minimum 4 iterations to calculate. In contrary, affinity scheduling has not such limitations which lead to the overall delay of affinity. Nevertheless, this behavior concludes to the similar running time between our cases.
 
 At this point, we should point out that if the affinity scheduling had a way to define the minimum Chunksize, then the running time would have better results on the given problem.    
 
 \subsubsection{Speedup}
 
-When it comes to scalability, according to Figure \ref{speedupLoop1}, both of the scheduling options scale in simmilar manner. For 1 to 6 threads the speedup is extremely close to the ideal values. Beyond that point, in both cases the rate of changes is declined slightly until 12 threads.
+When it comes to scalability, according to Figure \ref{speedupLoop1}, both of the scheduling options scale in similar manner. For 1 to 6 threads the speedup is extremely close to the ideal values. Beyond that point, in both cases, the rate of changes is declined slightly until 12 threads.
 
-In contrast, running on 16 threads the speedup results differ in each case. Guided, 4 option has better speedup. As mentioned before, this happens due to the fact that there is a limitation to the minimum Chunksize. If we take into consideration the fact that cache contains consecutive data because of the spatial locality, then guided, 4 works better as we increase the number of threads. This can become obvious for the last iterations. Guided, 4 could calculate 4 iterations much faster that affinity. As opposed to, affinity which will have to launch 4 threads to scan the Local Sets (including the race conditions) to acquire just on iteration and execute it.
+In contrast, running on 16 threads the speedup results differ in each case. Guided, 4 option has a better speedup. As mentioned before, this happens due to the fact that there is a limitation to the minimum Chunksize. If we take into consideration the fact that cache contains consecutive data because of the spatial locality, then guided, 4 works better as we increase the number of threads. This can become obvious for the last iterations. Guided, 4 could calculate 4 iterations much faster that affinity. As opposed to, the affinity which will have to launch 4 threads to scan the Local Sets (including the race conditions) to acquire just on iteration and execute it.
 
 \begin{figure}[h!]
     \centering
@@ -293,7 +293,7 @@ According to Figure \ref{speedupLoop2}, comparing the speedup of affinity schedu
 	\label{speedupLoop2}
 \end{figure}
 
-The trend changes when we move from 12 to 16 threads. Using 12 threads the heaviest Local Set is the first one containing exactly 729 (iterations) / 12 (number of threads) = 60 iterations. This means that it will possibly be the thread with the slowest progress, so each other will try to steal from it. The issue is that when we use 16 threads then each Local Set will have 729 / 16 = 45 iterations. As results the heavy workload will be distributed among thread 1 and 2. Keeping in mind that being the most loaded thread doesn't mean you have the most intense calculations. Then an issue occurs, because the other threads will try to steal with a greater possibility from other than thread 1 and 2. This leads to an unfair balance distribution.
+The trend changes when we move from 12 to 16 threads. Using 12 threads the heaviest Local Set is the first one containing exactly 729 (iterations) / 12 (number of threads) = 60 iterations. This means that it will possibly be the thread with the slowest progress, so each other will try to steal from it. The issue is that when we use 16 threads then each Local Set will have 729 / 16 = 45 iterations. As results, the heavy workload will be distributed among thread 1 and 2. Keeping in mind that being the most loaded thread doesn't mean you have the most intense calculations. Then an issue occurs, because the other threads will try to steal with a greater possibility from other than thread 1 and 2. This leads to an unfair balance distribution.
 
 In terms of dynamic, 16 scheduling, it is plain to see that if we use more than 6 threads, its speedup is constant. This happens because adding more threads after that point has no overall effect due to the fact that there are no additional heavy calculations. The first thread will have been assigned with the heavy workload, and the remaining will be underutilized.
 
